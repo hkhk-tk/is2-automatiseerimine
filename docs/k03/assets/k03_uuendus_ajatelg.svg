@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 705 275" width="705"><style>text{font-family:Inter, Arial, sans-serif;fill:#212121;font-size:15px}.b{font-weight:700}.s{font-size:13px}.c{text-anchor:middle}.p{fill:#ede7f6;stroke:#5e35b1;stroke-width:1.5}.o{fill:#fff3e0;stroke:#ff9100;stroke-width:1.5}.g{fill:#e8f5e9;stroke:#2e7d32;stroke-width:1.5}.r{fill:#ffebee;stroke:#c62828;stroke-width:1.5}.f{fill:#fff;stroke:#7e57c2;stroke-width:1.5}.z{fill:#f5f5f5;stroke:#9e9e9e;stroke-width:1.2;stroke-dasharray:5 4}.l{stroke:#7e57c2;stroke-width:2;fill:none}.d{stroke:#ff9100;stroke-width:2;fill:none;stroke-dasharray:6 4}</style><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7e57c2"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff9100"/></marker></defs>
+<rect width="705" height="275" fill="#fff"/>
+<rect class="g" x="20" y="30" width="120" height="56" rx="8"/><text class="b c" x="80.0" y="63.0">v1 töötab</text>
+<line class="l" x1="140" y1="58" x2="180" y2="58" marker-end="url(#a)"/>
+<rect class="p" x="185" y="30" width="130" height="56" rx="8"/><text class="b c" x="250.0" y="55.0">pull v2</text><text class="c s" x="250.0" y="73.0">image alla</text>
+<line class="l" x1="315" y1="58" x2="355" y2="58" marker-end="url(#a)"/>
+<rect class="p" x="360" y="30" width="140" height="56" rx="8"/><text class="b c" x="430.0" y="55.0">konteiner</text><text class="c s" x="430.0" y="73.0">asendatakse</text>
+<line class="l" x1="500" y1="58" x2="540" y2="58" marker-end="url(#a)"/>
+<rect class="f" x="545" y="30" width="140" height="56" rx="8"/><text class="b c" x="615.0" y="55.0">valmisolek</text><text class="c s" x="615.0" y="73.0">kontroll</text>
+<line class="l" x1="615" y1="86" x2="615" y2="130" marker-end="url(#a)"/><text class="c s" x="665" y="112">õnnestub</text>
+<rect class="g" x="545" y="135" width="140" height="50" rx="8"/><text class="b c" x="615.0" y="165.0">v2 jääb tööle</text>
+
+<line class="d" x1="560" y1="86" x2="430" y2="150" marker-end="url(#b)"/>
+<text class="c s" x="470" y="112">ebaõnnestub</text>
+<rect class="r" x="300" y="135" width="200" height="50" rx="8"/><text class="b c" x="400.0" y="157.0">tagasipööramine v1</text><text class="c s" x="400.0" y="175.0">image ja seadistus</text>
+<rect class="o" x="20" y="215" width="665" height="40" rx="8"/>
+<text class="b c" x="352" y="240">volume dbdata: andmed jäävad alles ka pärast tagasipööramist</text>
+</svg>

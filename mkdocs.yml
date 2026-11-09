@@ -77,6 +77,7 @@ markdown_extensions:
 nav:
   - Avaleht: index.md
   - 3. kohtumine · Docker ja Podman:
+      - Loeng: k03/loeng.md
       - Süvenemine: k03/syvenemine.md
       - Lisaülesanded: k03/lisa.md
   - IS1 kursus: https://hkhk-tk.github.io/is1-automatiseerimine/

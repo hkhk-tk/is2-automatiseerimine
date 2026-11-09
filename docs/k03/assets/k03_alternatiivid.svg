@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 370" width="1000"><style>text{font-family:Inter, Arial, sans-serif;fill:#212121;font-size:15px}.b{font-weight:700}.s{font-size:13px}.c{text-anchor:middle}.p{fill:#ede7f6;stroke:#5e35b1;stroke-width:1.5}.o{fill:#fff3e0;stroke:#ff9100;stroke-width:1.5}.g{fill:#e8f5e9;stroke:#2e7d32;stroke-width:1.5}.r{fill:#ffebee;stroke:#c62828;stroke-width:1.5}.f{fill:#fff;stroke:#7e57c2;stroke-width:1.5}.z{fill:#f5f5f5;stroke:#9e9e9e;stroke-width:1.2;stroke-dasharray:5 4}.l{stroke:#7e57c2;stroke-width:2;fill:none}.d{stroke:#ff9100;stroke-width:2;fill:none;stroke-dasharray:6 4}</style><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7e57c2"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff9100"/></marker></defs>
+<rect width="1000" height="370" fill="#fff"/>
+<text class="b c s" x="140" y="24">kiht</text>
+<text class="b c s" x="380" y="24">Dockeri osa</text>
+<text class="b c s" x="740" y="24">alternatiivid</text>
+<rect class="f" x="20" y="36" width="240" height="52" rx="8"/><text class="b c" x="140.0" y="67.0">arendaja töökeskkond</text>
+<rect class="o" x="270" y="36" width="220" height="52" rx="8"/><text class="b c" x="380.0" y="67.0">Docker Desktop</text>
+<rect class="p" x="500" y="36" width="480" height="52" rx="8"/><text class="b c" x="740.0" y="67.0">Podman Desktop, Rancher Desktop, OrbStack, Colima</text>
+<rect class="f" x="20" y="98" width="240" height="52" rx="8"/><text class="b c" x="140.0" y="129.0">image'i ehitamine</text>
+<rect class="o" x="270" y="98" width="220" height="52" rx="8"/><text class="b c" x="380.0" y="129.0">BuildKit</text>
+<rect class="p" x="500" y="98" width="480" height="52" rx="8"/><text class="b c" x="740.0" y="129.0">Buildah, podman build</text>
+<rect class="f" x="20" y="160" width="240" height="52" rx="8"/><text class="b c" x="140.0" y="191.0">mootor ja käsurida</text>
+<rect class="o" x="270" y="160" width="220" height="52" rx="8"/><text class="b c" x="380.0" y="191.0">dockerd, docker CLI</text>
+<rect class="p" x="500" y="160" width="480" height="52" rx="8"/><text class="b c" x="740.0" y="191.0">Podman, containerd + nerdctl</text>
+<rect class="f" x="20" y="222" width="240" height="52" rx="8"/><text class="b c" x="140.0" y="253.0">madala taseme käitusaeg</text>
+<rect class="o" x="270" y="222" width="220" height="52" rx="8"/><text class="b c" x="380.0" y="253.0">runc</text>
+<rect class="p" x="500" y="222" width="480" height="52" rx="8"/><text class="b c" x="740.0" y="253.0">crun, Kata Containers (VM-is)</text>
+<rect class="f" x="20" y="284" width="240" height="52" rx="8"/><text class="b c" x="140.0" y="315.0">mitu serverit</text>
+<rect class="o" x="270" y="284" width="220" height="52" rx="8"/><text class="b c" x="380.0" y="315.0">Docker Swarm</text>
+<rect class="p" x="500" y="284" width="480" height="52" rx="8"/><text class="b c" x="740.0" y="315.0">Kubernetes, OpenShift, pilve hallatud teenused</text>
+<text class="b c s" x="500" y="356">kõik kasutavad samu OCI image'eid</text>
+</svg>

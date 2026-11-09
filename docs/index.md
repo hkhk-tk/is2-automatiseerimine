@@ -36,7 +36,7 @@ Kursus jätkab kursust [IT-infrastruktuuri automatiseerimine I](https://hkhk-tk.
 
     Docker Engine hostis, restart-poliitika, image'i sisemus ja kihid, mitte-root kasutaja, tootmisse sobiv Compose'i stack, Trivy ja Harbori poliitikad, Podman ja Quadlet.
 
-    [Süvenemine →](k03/syvenemine.md) · [Lisaülesanded →](k03/lisa.md)
+    [Loeng →](k03/loeng.md) · [Süvenemine →](k03/syvenemine.md) · [Lisaülesanded →](k03/lisa.md)
 
 </div>
 
