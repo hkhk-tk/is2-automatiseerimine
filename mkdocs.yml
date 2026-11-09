@@ -1,0 +1,93 @@
+site_name: IT-infrastruktuuri automatiseerimine II
+site_description: HKHK täiendkoolitus
+site_author: Maria Talvik
+copyright: Maria Talvik &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.et">CC BY-SA 4.0</a>
+site_url: https://hkhk-tk.github.io/is2-automatiseerimine/
+repo_name: hkhk-tk/is2-automatiseerimine
+repo_url: https://github.com/hkhk-tk/is2-automatiseerimine
+docs_dir: docs
+
+theme:
+  name: material
+  language: et
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+    - content.tooltips
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle: { icon: material/brightness-auto, name: Vaheta tumele režiimile }
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle: { icon: material/brightness-7, name: Vaheta tumele režiimile }
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle: { icon: material/brightness-4, name: Vaheta heledasse režiimi }
+  icon:
+    logo: material/server-network
+
+plugins:
+  - search:
+      lang: et
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - footnotes
+  - tables
+  - toc: { permalink: true, title: Sisukord, toc_depth: 3 }
+  - pymdownx.details
+  - pymdownx.highlight: { anchor_linenums: true }
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.keys
+
+nav:
+  - Avaleht: index.md
+  - 3. kohtumine · Docker ja Podman:
+      - Süvenemine: k03/syvenemine.md
+      - Lisaülesanded: k03/lisa.md
+  - IS1 kursus: https://hkhk-tk.github.io/is1-automatiseerimine/
+
+extra:
+  social:
+    - icon: octicons/comment-discussion-16
+      link: https://github.com/hkhk-tk/is126-arutelu/discussions
+      name: Küsimused ja teated
+
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascripts/print.js

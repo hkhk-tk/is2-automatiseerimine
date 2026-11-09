@@ -1,0 +1,171 @@
+/* Kompaktsem lugemine: väiksem tekst, tihedam reavahe, väiksemad vahed */
+.md-typeset {
+  font-size: .72rem;
+  line-height: 1.4;
+}
+.md-typeset p,
+.md-typeset ul,
+.md-typeset ol,
+.md-typeset table:not([class]),
+.md-typeset pre,
+.md-typeset figure {
+  margin-top: .35em;
+  margin-bottom: .35em;
+}
+.md-typeset li { margin-bottom: .15em; }
+.md-typeset li p { margin: .15em 0; }
+
+/* Selge hierarhia: pealkirjad eristuvad tekstist suuruse, paksuse ja värviga */
+.md-typeset h1 { font-size: 1.9em; font-weight: 700; margin: 0 0 .6em; }
+.md-typeset h2 {
+  font-size: 1.5em; font-weight: 700;
+  color: var(--md-primary-fg-color);
+  margin: 2.8em 0 .6em; padding-bottom: .2em;
+  border-bottom: 2px solid var(--md-primary-fg-color--light);
+}
+.md-typeset h3 {
+  font-size: 1.2em; font-weight: 700;
+  margin: 2.4em 0 .4em; padding-top: .9em;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-typeset h2 + h3, .md-typeset h2 + p + h3 { border-top: 0; padding-top: 0; margin-top: 1em; }
+.md-typeset h4 { font-size: 1em; font-weight: 700; margin: 1em 0 .3em; }
+
+/* Sildid "Valmis, kui" ja "Esitad" */
+.md-typeset .silt {
+  margin: .9em 0 .2em;
+  font-size: .62rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--md-accent-fg-color);
+}
+
+/* Plokid (oodatav tulemus, vihje, hoiatus) tihedamalt */
+.md-typeset .admonition,
+.md-typeset details {
+  margin: .6em 0;
+  font-size: .68rem;
+}
+/* Plokkide pealkiri: tavaline kaal (kast on niigi värviline); vahed Materiali
+   vaikimisi, et ikoon ja nool jääksid keskele */
+.md-typeset details > summary,
+.md-typeset .admonition-title { font-weight: 400; }
+
+/* Ikoon (vasakul) ja nool (paremal) alati pealkirja rea keskel */
+.md-typeset .admonition-title::before,
+.md-typeset summary::before,
+.md-typeset summary::after {
+  top: calc(50% - .5rem);
+}
+
+/* Koodiplokk ja tabel veidi väiksema kirjaga */
+.md-typeset pre > code { padding: .6em .9em; }
+.md-typeset code { font-size: .88em; }
+.md-typeset table:not([class]) { font-size: .68rem; }
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th { padding: .45em .8em; }
+
+/* Mermaid-joonised: mitte üle kogu lehe */
+.md-typeset .mermaid {
+  max-width: 30rem;
+  margin: .6em auto;
+}
+
+/* Joonised: laius tuleb figure style="max-width:<viewBox laius>px" kaudu,
+   nii on joonise tekst sama suur kui lehe tekst (1 SVG ühik = 1 px) */
+.md-typeset figure svg { width: 100%; height: auto; }
+
+/* SVG-joonised: Material annab figure'ile width: fit-content, SVG tahab
+   100% -> brauser kahandas joonise pisikeseks. Joonise figure võtab kogu
+   laiuse; tegelik laius tuleb style="max-width:<viewBox>px" kaudu. */
+.md-typeset figure.lx,
+.md-typeset figure.dl-var,
+.md-typeset figure.dl-stack {
+  width: 100%;
+  display: block;
+}
+
+/* --- IS1 lisad --- */
+/* K1 spikker: üks A4 leht printimisel */
+.md-typeset .spikker table:not([class]) { font-size: .64rem; }
+.md-typeset .spikker table:not([class]) :is(td, th) { padding: .25em .6em; }
+@media print {
+  .md-typeset .spikker table:not([class]) { font-size: 7pt; }
+  .md-typeset .spikker p { margin: .3em 0 .1em; }
+}
+/* Loengu kokkuvõte: väike, tihe nimekiri, mitte suured kaardid */
+.md-typeset .kokkuvote.grid { grid-gap: .3rem; }
+.md-typeset .kokkuvote.grid.cards > ul > li {
+  padding: .35rem .7rem;
+  border: 0; border-left: 2px solid var(--md-default-fg-color--lightest);
+  box-shadow: none; font-size: .66rem;
+}
+.md-typeset .kokkuvote.grid.cards > ul > li:hover { box-shadow: none; }
+.md-typeset .kokkuvote.grid.cards > ul > li > p { margin: .1em 0; }
+.md-typeset .kokkuvote.grid.cards > ul > li > p:first-child { font-weight: 700; }
+.md-typeset .kontrollkysimus { margin-top: .6rem; padding: .5rem .8rem; background: var(--md-code-bg-color); border-radius: .2rem; }
+
+/* --- Avaleht --- */
+.md-typeset .avaleht-hero {
+  display: grid; grid-template-columns: 1fr auto; gap: 1.2rem; align-items: center;
+  padding: .6rem 0 .8rem; border-bottom: 1px solid var(--md-default-fg-color--lightest); margin-bottom: .8rem;
+}
+.md-typeset .avaleht-hero h1 { font-size: 2em; margin: 0 0 .3em; }
+.md-typeset .hero-tekst > p:first-of-type { font-size: .82rem; line-height: 1.45; }
+.md-typeset .avaleht-hero .md-button { margin: .3em .3em .3em 0; }
+.md-typeset figure.hero-pilt { margin: 0; width: 230px; max-width: 230px; justify-self: end; }
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .avaleht-hero { grid-template-columns: 1fr; }
+  .md-typeset figure.hero-pilt { display: none; }
+}
+.md-typeset .avaleht-info { font-size: .64rem; color: var(--md-default-fg-color--light); margin: .3em 0; }
+/* Avalehe sektsioonid tihedamalt */
+.md-typeset .avaleht h2 { margin: 1.4em 0 .4em; }
+.md-typeset .avaleht .admonition { margin: .4em 0 .6em; }
+/* Õppepäevade kaardid: kaks veergu, telefonis üks */
+.md-typeset .paevad.grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-gap: .5rem; }
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .paevad.grid { grid-template-columns: 1fr; }
+}
+.md-typeset .paevad.grid.cards > ul > li { padding: .6rem .8rem; }
+.md-typeset .paevad.grid.cards > ul > li > p { margin: .15em 0; }
+.md-typeset .paev-nr {
+  font-size: .58rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--md-accent-fg-color);
+}
+.md-typeset .tuleb { font-size: .6rem; color: var(--md-default-fg-color--light); }
+@media print { .md-typeset figure.hero-pilt { display: none; } .md-typeset .avaleht-hero { display: block; } }
+
+/* Rahulikud kastid: näide, märkus, lisalugemine, küsimus ühtses hallis.
+   Värv jääb ainult hoiatusele, oodatavale tulemusele ja "Alusta siit"-le. */
+.md-typeset :is(.admonition, details):is(.note, .info, .question, .example, .abstract) {
+  border-color: var(--md-default-fg-color--lighter); box-shadow: none;
+}
+.md-typeset :is(.note, .info, .question, .example, .abstract) > :is(.admonition-title, summary) {
+  background-color: var(--md-code-bg-color);
+}
+.md-typeset :is(.note, .info, .question, .example, .abstract) > :is(.admonition-title, summary)::before {
+  background-color: var(--md-default-fg-color--light);
+}
+
+/* Tööriistade logod tabelites ja tekstis (Simple Icons, kaubamärgid kuuluvad omanikele) */
+img.logo { height: 14px; max-height: 14px; width: auto; vertical-align: -0.18em; margin-right: .3em; }
+
+/* Trükk ja PDF: pealkiri jääb järgmise lõiguga samale lehele, lühikesed plokid ei poolitu */
+@media print {
+  .md-typeset :is(h1, h2, h3, h4) { break-after: avoid; page-break-after: avoid; }
+  .md-typeset :is(figure, table) { break-inside: avoid; page-break-inside: avoid; }
+  .md-typeset pre { break-inside: avoid; page-break-inside: avoid; }
+  .md-typeset pre > code { font-size: 7.5pt; white-space: pre-wrap; }
+  .md-typeset details > summary::after { display: none; }
+  .md-typeset :is(.admonition, details) { box-shadow: none; border-width: 1px; border-style: solid; }
+  .md-typeset figcaption { break-before: avoid; page-break-before: avoid; }
+}
+
+/* Kood kursiivi sees (tabeli allkiri): püstine kiri, muidu jääb trükis nähtamatuks */
+.md-typeset em code { font-style: normal; }
+/* Trükis ei lõigata laia tabelit ära */
+@media print {
+  .md-typeset__scrollwrap, .md-typeset__table { overflow: visible !important; }
+  .md-typeset table:not([class]) { display: table; width: 100%; table-layout: fixed; font-size: 7pt; }
+  .md-typeset table:not([class]) :is(td, th) { padding: .3em .45em; overflow-wrap: anywhere; }
+}
