@@ -1555,7 +1555,7 @@ docker image inspect -f '{{.Config.User}}' labseis-app:multi
 
 ### 6.9 Töötava teenuse uurimine
 
-Tee see pärast IS1 praktikumi sammu 4.4.
+Tee see pärast IS1 praktikumi sammu 4.5.
 
 Töötavat stacki uurid samade küsimustega nagu iga teist teenust, kui kasutaja ütleb „läks aeglaseks“ või „annab vahel vea“. Iga käsk vastab ühele küsimusele: mis juhtub praegu (`logs -f`), mis juhtus viimasel ajal (`--since`), milline on seadistus (`inspect --format`), kui palju ressurssi kulub (`stats`), mis protsessid töötavad (`top`) ja milline fail konteineris on (`cp`). `docker restart` säilitab konteineri ja tema logi, aga `up -d --force-recreate` loob uue konteineri ja `json-file` logi kaob koos vanaga. Enne konteineri uuesti loomist salvesta vajalikud väljad ja logiread.
 
@@ -1599,7 +1599,7 @@ diff web/nginx.conf /tmp/web01-default.conf
 
 ### 6.10 Muudatus ja idempotentsus
 
-Tee see pärast IS1 praktikumi sammu 4.4.
+Tee see pärast IS1 praktikumi sammu 4.5.
 
 Ansible'i playbook andis teisel käivitusel `changed=0`. Compose'i `up -d` võrdleb iga teenuse seadistuse räsi konteineri sildiga `com.docker.compose.config-hash` ja loob uuesti ainult selle, mis erineb. Kui sa ei tea, mida `up -d` puudutab, kardad seda tootmises käivitada ja hakkad konteinereid käsitsi parandama. Nii tekib erinevus faili ja tegeliku oleku vahel (triiv), ja järgmine `up -d` kirjutab sinu käsitsi parandused üle.
 
