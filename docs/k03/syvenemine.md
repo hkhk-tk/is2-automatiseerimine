@@ -2282,6 +2282,28 @@ Jätkab: IS1 praktikumi osa 6.
 
 **Tag `k03`.** Tag `k03` määrab, milline commit esitatakse, ja automaatkontroll hindab alati seda commit'i, millele tag viitab. Tag `main`-i commit'il tähendab, et kontrollitakse sama koodi, mis on kursuse põhiharus. Kursusel on tag'i ümbertõstmine pärast parandust lubatud.
 
+### Compose'i ühised seaded ühes kohas
+
+Jätkab: IS1 praktikumi samm 4.5.
+
+Kui sama seade on igal teenusel, võid selle kirjutada üks kord faili algusesse ja igas teenuses sellele viidata. Nii saab lisada ka logide suuruse piirangu.
+
+```yaml
+x-common: &common
+  restart: unless-stopped
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
+
+services:
+  db01:
+    <<: *common
+```
+
+`&common` paneb plokile nime ja `<<: *common` toob selle sisu teenusesse. Vaata [Compose'i laiendusvälju](https://docs.docker.com/reference/compose-file/extension/).
+
 ### Image'i nimi ja image'i kustutamine
 
 Jätkab: IS1 praktikumi samm 1.6, kui konteiner `veeb` töötab ja `fg` on peatatud.
