@@ -9,6 +9,18 @@ tags:
 
 Loeng jätkab IS1 [konteineriseerimise loengut](https://hkhk-tk.github.io/is1-automatiseerimine/k03/loeng/): tuuma eraldus, Docker Engine, ressursipiirid, Dockerfile mitte-root kasutajaga, tag ja digest, Ansible ja Docker koos, deploy, tarneahel ja litsentsid.
 
+## Muud konteinerite käituskeskkonnad
+
+IS1 loengus olid Docker Engine, Podman ja arendaja töölauarakendused. Need käivitavad samu OCI image'eid nagu allolevad tööriistad, aga töötavad teistes kohtades.
+
+| Tööriist | Mis see on | Kus seda kasutatakse |
+|---|---|---|
+| [containerd](https://containerd.io/) ja [nerdctl](https://github.com/containerd/nerdctl) | käituskeskkond, mis töötab ka Dockeri ja Kubernetese all; `nerdctl` on Dockeri-sarnane käsk | Kubernetes (k3s, pilveteenused) |
+| [CRI-O](https://cri-o.io/) | ainult Kubernetese jaoks tehtud käituskeskkond | OpenShift |
+| [LXC ja Incus](https://linuxcontainers.org/) | süsteemikonteinerid: terve Linux koos systemd'ga | Proxmoxi konteinerid (CT) |
+
+Mitme serveri jaoks kasutatakse Kubernetest, mis käivitab konteinereid containerd või CRI-O kaudu. Docker Engine ise kasutab samuti containerd'i: `dockerd` annab konteineri loomise sellele edasi.
+
 ## Kuidas tuum konteinerit eraldab
 
 [Konteiner](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/) on hosti tuumas töötav tavaline protsess. Konteineri eraldamisel lahendab tuum kaks ülesannet: piirab, mida protsess süsteemist näeb, ja piirab, kui palju ressursse see kasutada saab.
