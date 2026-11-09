@@ -2282,6 +2282,12 @@ Jätkab: IS1 praktikumi osa 6.
 
 **Tag `k03`.** Tag `k03` määrab, milline commit esitatakse, ja automaatkontroll hindab alati seda commit'i, millele tag viitab. Tag `main`-i commit'il tähendab, et kontrollitakse sama koodi, mis on kursuse põhiharus. Kursusel on tag'i ümbertõstmine pärast parandust lubatud.
 
+### Miks mitte `registry-mirrors`?
+
+Jätkab: IS1 praktikumi samm 1.5.
+
+Dockeri `daemon.json` võti `registry-mirrors` suunab Docker Hubi tõmbed teise serverisse, aga ainult sellisesse, kus image'id on juurtasemel (`/v2/library/nginx`). Harbori vahemälu on projekti all (`/dockerhub/library/nginx`), ja seda Docker ei toeta. Podman toetab, seda näed kursusel [IS2](https://hkhk-tk.github.io/is2-automatiseerimine/k03/syvenemine/#osa-4-sama-teenus-podmaniga). Seepärast on Dockeri image'ite nimes eesliide `$HUB`. GitHubi automaatkontroll Harborit ei näe (see on VPN-i taga) ja kasutab vaikimisi `docker.io/library`.
+
 ### Rikkeotsing: bind mount, mitte-root ja image'i suurus
 
 | Mida näed | Kontrolli | Tõenäoline põhjus | Miks see juhtub |
