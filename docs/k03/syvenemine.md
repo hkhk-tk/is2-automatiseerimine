@@ -2282,6 +2282,22 @@ Jätkab: IS1 praktikumi osa 6.
 
 **Tag `k03`.** Tag `k03` määrab, milline commit esitatakse, ja automaatkontroll hindab alati seda commit'i, millele tag viitab. Tag `main`-i commit'il tähendab, et kontrollitakse sama koodi, mis on kursuse põhiharus. Kursusel on tag'i ümbertõstmine pärast parandust lubatud.
 
+### Image'i nimi ja image'i kustutamine
+
+Jätkab: IS1 praktikumi samm 1.6, kui konteiner `veeb` töötab ja `fg` on peatatud.
+
+**Küsimus enne käsku:** kas image'i saab kustutada, kui seda kasutab peatatud konteiner `fg`? 1.5-s nägid, et sama Nginxi image on masinas kahe nimega. Eemalda kõigepealt Docker Hubi nimi ja siis Harbori nimi.
+
+```bash
+docker rmi nginx:1.30-alpine
+docker image ls
+docker rmi $HUB/nginx:1.30-alpine
+```
+
+??? success "Oodatav tulemus"
+
+    Esimene `rmi` ütleb ainult `Untagged: nginx:1.30-alpine` ja `image ls` näitab sama ID-d Harbori nime all edasi. Kui image'il on mitu nime, eemaldab `rmi` ainult ühe nime. Teine `rmi` annab vea `conflict` konteineri ID-ga, sest see on image'i viimane nimi ja konteiner kasutab image'i kihte ka peatatuna. Image'i saab kustutada alles siis, kui kõik seda kasutavad konteinerid on kustutatud.
+
 ### Miks mitte `registry-mirrors`?
 
 Jätkab: IS1 praktikumi samm 1.5.
