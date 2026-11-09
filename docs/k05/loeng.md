@@ -7,19 +7,27 @@ tags:
 
 # Loeng: GitHub Actions lähemalt
 
-Loeng jätkab IS1 [pideva integratsiooni ja tarne loengut](https://hkhk-tk.github.io/is1-automatiseerimine/k05/loeng/): DORA näitajad, ebastabiilsed testid, webhook, korratav build, võõras kood workflow's, turvakontrollid ja allkiri, rünnakud build'i vastu, deploy strateegiad, muudatuste haldus ja runner'i turve.
+Loeng jätkab IS1 [pideva integratsiooni ja tarne loengut](https://hkhk-tk.github.io/is1-automatiseerimine/k05/loeng/): DORA näitajad, ebastabiilsed testid, harumudel, matrix ja vahemälu, webhook, korratav build, võõras kood workflow's, turvakontrollid ja allkiri, rünnakud build'i vastu, deploy strateegiad, muudatuste haldus ja runner'i turve.
 
 ## DORA ja ebastabiilsus
 
-IS1 loengu osa „Pidev integratsioon ja DevOps automation“ seletas CI ja CD mõisteid. Tarne kiirust ja kvaliteeti mõõdetakse DORA näitajatega.
+IS1 loengu osa „Pidev integratsioon ja tarne“ seletas CI ja CD mõisteid. Tarne kiirust ja kvaliteeti mõõdetakse DORA näitajatega.
 
 DORA mõõdab tarnimist viie näitajaga ([DORA metrics](https://dora.dev/guides/dora-metrics/)). Läbilaskevõimet näitavad aeg commit'ist tootmiseni, deploy'de sagedus ja taastumisaeg ebaõnnestunud deploy'st. Ebastabiilsust näitavad ebaõnnestunud muudatuste osakaal ja deploy'de ümbertöö osakaal: plaanimata deploy'd, mille tootmisintsident peale sundis. Küsitlusuuringud väidavad aastast aastasse, et sagedamini ja väiksemate muudatustega tarnivad meeskonnad ei maksa selle eest suurema rikete osakaaluga. See on korrelatsioon küsitlusandmetest, mitte tõestatud põhjuslik seos. Adminitöös on otsesem teine tagajärg: kui pipeline rakendab igal deploy'l koodis kirjeldatud soovitud oleku uuesti, kirjutab järgmine deploy käsitsi tehtud paranduse üle samamoodi nagu playbook.
 
 ## Ebastabiilsed testid
 
-IS1 loengu osa „Pipeline kui graaf“ seletas job'e, `needs:` võtit ja quality gate'i. Quality gate on nii usaldusväärne kui selle kõige ebakindlam test.
+IS1 loengu osa „Konveier graafina“ seletas job'e, `needs:` ja `if:` võtit ning quality gate'i. Quality gate on nii usaldusväärne kui selle kõige ebakindlam test.
 
 Graafi usaldusväärsuse määrab selle kõige ebakindlam tipp. Google'i andmetel andis umbes 1,5% kõigist testikäivitustest ebastabiilse tulemuse ja ligi 16% testidest ebaõnnestus vahel ilma koodi muutuseta ([Flaky Tests at Google](https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html)). Sadade testidega job'is ei tähenda punane tulemus siis enam viga ja meeskond hakkab vajutama „Re-run failed jobs“. Sellest hetkest on quality gate'i tulemus juhuslik. Ebastabiilne test pannakse karantiini ja määratakse omanikule, mitte ei korrata automaatselt, sest automaatne kordus peidab ka tegeliku race condition'i.
+
+## Harumudel, matrix ja vahemälu
+
+CI eeldab harumudelit. Kui meeskond hoiab nädalaid kestvaid feature-harusid, ehitab CI küll iga commit'i, aga integratsioon lükkub merge'i päeva ja konfliktid on sama suured kui varem. Seepärast käib CI-ga kaasas trunk-based arendus: haru on olemas päeva või kaks ja pooleli töö peidetakse feature flag'i taha.
+
+**Matrix** genereerib ühest job'i kirjeldusest job'i iga parameetrikombinatsiooni kohta, kuni 256 job'i ühes käivituses. Vaikimisi `fail-fast` tühistab esimese ebaõnnestumise järel ülejäänud kombinatsioonid. Compat-kontrollis (näiteks järgmine JDK) lülitatakse see välja ja job'il ei ole järglast: see on varajane hoiatus, quality gate'i rollis see ei ole.
+
+**Vahemälu** (Maveni teegid, Dockeri kihid) on ainult optimeerimine: kui see kaob, peab build õnnestuma aeglasemalt. Google'i SRE raamat nimetab sellist build'i hermeetiliseks: tulemus ei sõltu sellest, mis build-masinasse juhtumisi paigaldatud on ([Release Engineering](https://sre.google/sre-book/release-engineering/)). GitHubi vahemälu on repo kohta vaikimisi 10 GB ja käivitus loeb ainult oma haru ja vaikeharu kirjeid, nii et PR-i haru ei saa main'i vahemälu mürgitada.
 
 ## Webhook: sündmus väljaspool GitHubi
 
@@ -27,13 +35,13 @@ Graafi käivitab sündmus: `push`, `pull_request`, ajakava või käsitsi nupp. V
 
 ## Korratav build
 
-IS1 loengu osa „Build kui korratav artefakt“ seletas Maveni elutsüklit ja põhimõtet build once, deploy many. Korratavust murravad kaks Maveni omadust. Versioonikonflikti lahendab reegel „lähim võidab“: kui sama teek on puus kahel sügavusel, võetakse madalam, mitte uuem, ja uue otsese sõltuvuse lisamine võib transitiivse versiooni vaikselt alla viia. `-SNAPSHOT` on liikuv versioon, mis annab homme sama koordinaadi all teise faili, Maven Centrali release aga on muutumatu.
+IS1 loengu osad „Rakenduse ehitamine Maveniga“ ja „Image registry'sse“ seletasid Maveni elutsüklit ja põhimõtet build once, deploy many. Korratavust murravad kaks Maveni omadust. Versioonikonflikti lahendab reegel „lähim võidab“: kui sama teek on puus kahel sügavusel, võetakse madalam, mitte uuem, ja uue otsese sõltuvuse lisamine võib transitiivse versiooni vaikselt alla viia. `-SNAPSHOT` on liikuv versioon, mis annab homme sama koordinaadi all teise faili, Maven Centrali release aga on muutumatu.
 
 Build once on vajalik ka seepärast, et sama allikas ei anna vaikimisi baidi täpsusega sama tulemust. JAR on ZIP-arhiiv, kuhu satuvad failide ajatemplid ja järjestus, nii et kaks build'i samast commit'ist annavad erineva räsi. Maveni [korratava build'i juhend](https://maven.apache.org/guides/mini/guide-reproducible-builds.html) fikseerib ajatemplid omadusega `project.build.outputTimestamp`. Konteineri puhul on sama roll digest'il: tag on viide, `sha256:` digest on image'i manifesti räsi. Deploy, mis tõmbab image'i digest'iga, saab täpselt selle, mida testiti, ka siis, kui keegi tag'i hiljem ümber suunab. Korratav build ja build once lahendavad eri probleemi. Esimene laseb kolmandal osapoolel kontrollida, et binaar tuli sellest allikast. Teine hoiab ära, et seda peaks iga deploy'ga uuesti kontrollima.
 
 ## Võõras kood workflow's: `pull_request_target` ja avaldised
 
-IS1 loengu osa „Tarneahela usaldus“ seletas, miks action kinnitatakse SHA-ga ja miks `GITHUB_TOKEN` saab ainult vajalikud õigused. Ohtlikuim muster on `pull_request_target`: see töötab sihtharu kontekstis koos secret'ite ja kirjutusõigusega tokeniga. Kui workflow teeb seal forgi koodi checkout'i ja ehitab selle, käivitub võõras kood sinu õigustega. Sama kehtib väärtuste kohta, mida kirjutab keegi teine: haru nimi, PR-i pealkiri, commit'i sõnum. Avaldis `${{ }}` asendatakse enne, kui shell skripti saab, nii et otse `run:` reale pandud haru nimi võib olla käsk. Väärtus peab shelli jõudma `env:` muutujana ([GitHubi turvajuhend](https://docs.github.com/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)).
+IS1 loengu osa „Tarneahel“ seletas, miks action kinnitatakse SHA-ga, miks `GITHUB_TOKEN` saab ainult vajalikud õigused ja miks saladus antakse sammule `env:` kaudu. SHA-ga kinnitatud action ei uuene ise ja vananeb. Selle vastu on [Dependabot](https://docs.github.com/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot), mis avab uuendusega PR-i. Uuendus läbib sama CI ja jõuab main'i alles siis, kui inimene selle merge'ib. Ohtlikuim muster on `pull_request_target`: see töötab sihtharu kontekstis koos secret'ite ja kirjutusõigusega tokeniga. Kui workflow teeb seal forgi koodi checkout'i ja ehitab selle, käivitub võõras kood sinu õigustega. Sama kehtib väärtuste kohta, mida kirjutab keegi teine: haru nimi, PR-i pealkiri, commit'i sõnum. Avaldis `${{ }}` asendatakse enne, kui shell skripti saab, nii et otse `run:` reale pandud haru nimi võib olla käsk. Väärtus peab shelli jõudma `env:` muutujana ([GitHubi turvajuhend](https://docs.github.com/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)).
 
 ## Turvakontrollid PR-is, SBOM ja allkiri
 
@@ -53,7 +61,7 @@ Allkiri tõendab, kes artefakti tootis, aga mitte seda, et build oli puhas. Sola
 
 ## Deploy risk: levitamine, canary ja blue-green
 
-IS1 loengu osa „Deployment automation: risk ja rollback“ seletas, millal deploy on õnnestunud ja mida teeb rollback. Riski määravad muudatuse suurus ja see, kui paljusid masinaid muudatus korraga puudutab.
+IS1 loengu osa „Paigaldus ja kontroll“ seletas, millal deploy on õnnestunud ja mida teeb rollback. Riski määravad muudatuse suurus ja see, kui paljusid masinaid muudatus korraga puudutab.
 
 19. juulil 2024 saatis CrowdStrike kõigile Falcon-agentidele korraga sisu-uuenduse, mis pani Microsofti hinnangul umbes 8,5 miljonit Windowsi masinat sinisele ekraanile ([CrowdStrike PIR](https://www.crowdstrike.com/falcon-content-update-remediation-and-guidance-hub/)). Koodi väljalasked läksid välja etappide kaupa, sisu-uuendused mitte. PIR-i järeldus oli viia etappidesse ka need.
 
@@ -79,11 +87,11 @@ Kompromiss tuleb otsustada enne, kui ITSM-i API esimest korda ei vasta. Kui depl
 
 DORA uuringus ei olnud välise heakskiidu, näiteks CAB-i, nõue seotud väiksema ebaõnnestunud muudatuste osakaaluga, küll aga aeglasema tarne ja suuremate pakettidega ([Streamlining change approval](https://dora.dev/capabilities/streamlining-change-approval/)). Pangas või riigiasutuses ei kao CAB sellest kuhugi, kui regulatsioon nõuab tõendatud kontrolli. Muutub CAB-i töö sisu. Üksikute deploy'de kinnitamise asemel kinnitab ta protseduure, peab standardmuudatuste nimekirja ja analüüsib ebaõnnestunud muudatusi pipeline'i kirjete põhjal. PR-i review ja automaatne kontroll annavad audiitorile tõendi iga muudatuse kohta, mitte valimi kohta.
 
-Iseseisvaks lugemiseks: [IT-teenuste haldus (ITSM)](https://hkhk-tk.github.io/is1-automatiseerimine/teemad/itsm/).
+Loe juurde: [IT-teenuste haldus (ITSM)](https://hkhk-tk.github.io/is1-automatiseerimine/teemad/itsm/).
 
 ## Runner'i turve
 
-IS1 loengu osa „Runner'i turve“ seletas self-hosted runner'i pull-mudelit ja kolme reeglit: ainult privaatne repo, ainult main'i või käsitsi käivitatud job'id ja oma label.
+IS1 loengu osa „Runner sinu võrgus“ seletas self-hosted runner'i pull-mudelit ja kolme reeglit: ainult privaatne repo, ainult main'i või käsitsi käivitatud job'id ja oma label.
 
 Teine risk on püsiv olek. Hallatud runner kustutatakse pärast job'i, self-hosted runner mitte. Töökaust, Dockeri image'id ja kodukausta failid jäävad järgmisele job'ile. Runner'i kasutaja on `docker` grupis ehk sisuliselt root. Ühekordne (`--ephemeral` või just-in-time) runner võtab ühe job'i ja kaob, kuid jagab endiselt hosti Dockerit. Täieliku eraldatuse annab iga job'i jaoks uus VM, nagu hallatud runner'id töötavad.
 

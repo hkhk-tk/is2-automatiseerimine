@@ -80,7 +80,7 @@ flowchart LR
   <figcaption>Joonis 6.5. Iga õppija näeb ainult oma folderit ja tema job käivitub ainult tema agendil (<a href="https://plugins.jenkins.io/job-restrictions/">Job Restrictions</a>).</figcaption>
 </figure>
 
-Credential'idel on sama loogika: folderi credential'it näevad ainult selle folderi job'id ja süsteemi credential'it (näiteks Sonari webhooki saladust) ainult Jenkins ise. Jenkinsfile'i Groovy töötab controlleris **Groovy sandboxis**: lubatud on ainult Script Security plugina valge nimekirja meetodid ja kõik muu läheb administraatori [kinnitusjärjekorda](https://www.jenkins.io/doc/book/managing/script-approval/). Üks kinnitatud meetod on lubatud kõigile pipeline'idele, mitte ainult sellele, mis seda küsis. Eraldi risk on Docker agendil: `/var/run/docker.sock`-i kirjutusõigus on [sisuliselt root](https://docs.docker.com/engine/security/#docker-daemon-attack-surface). Agendil on see teadlik otsus, controlleris kõigi kasutajate ühine root.
+Folderi, globaalse ja süsteemi credential'i erinevus on IS1 loengu jaotises [Kaustad, õigused ja credential'id](https://hkhk-tk.github.io/is1-automatiseerimine/k06/loeng/#5-kaustad-oigused-ja-credentialid). Süsteemi credential'it, näiteks Sonari webhooki saladust, kasutab ainult Jenkins ise. Jenkinsfile'i Groovy töötab controlleris **Groovy sandboxis**: lubatud on ainult Script Security plugina valge nimekirja meetodid ja kõik muu läheb administraatori [kinnitusjärjekorda](https://www.jenkins.io/doc/book/managing/script-approval/). Üks kinnitatud meetod on lubatud kõigile pipeline'idele, mitte ainult sellele, mis seda küsis. Eraldi risk on Docker agendil: `/var/run/docker.sock`-i kirjutusõigus on [sisuliselt root](https://docs.docker.com/engine/security/#docker-daemon-attack-surface). Agendil on see teadlik otsus, controlleris kõigi kasutajate ühine root.
 
 Teine teema on pluginad. Igal pluginal on oma sõltuvused, minimaalne Jenkinsi versioon ja turvateated. 2024. aasta jaanuaris avaldas Jenkins haavatavuse [CVE-2024-23897](https://www.jenkins.io/security/advisory/2024-01-24/). CLI parser asendas argumendi `@failinimi` faili sisuga, nii et autentimata kasutaja sai lugeda controlleri failide esimesi ridu ja *Overall/Read* õigusega kasutaja terveid faile, sh võtmeid, mille kaudu jõudis koodi käivitamiseni. Parandus tuli versioonidega 2.442 ja LTS 2.426.3. Sama aasta augustis oli see CISA [aktiivselt ära kasutatavate haavatavuste](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) nimekirjas.
 
@@ -90,7 +90,7 @@ Kolmas teema on taastatavus. [Configuration as Code](https://www.jenkins.io/proj
 
 Kõike koodist taastada ei saa. Buildide ajalugu ja credential'id jäävad kausta `$JENKINS_HOME` ja need vajavad [varukoopiat](https://www.jenkins.io/doc/book/system-administration/backing-up/). Kaustas `secrets/` olev `master.key` krüpteerib võtme `hudson.util.Secret`, mis omakorda krüpteerib credential'id. Ilma selleta on taastatud Jenkinsis kõik saladused loetamatud ja seepärast on varukoopia ise saladus. [LTS-liinis](https://www.jenkins.io/download/lts/) valitakse uus baasversioon iga 12 nädala järel ja Java nõue on viimastel aastatel kolm korda tõusnud: Java 11 versioonist 2.361.1, Java 17 versioonist 2.479.1 ja Java 21 versioonist 2.555.1 ([Java tugi](https://www.jenkins.io/doc/book/platform-information/support-policy-java/)). Uuendus käib seepärast samas järjekorras: varukoopia, pluginate ühilduvuse kontroll, uuendus, proovibuild. Varukoopia kehtib alles siis, kui uus Jenkins sellest käivitub ja credential on loetav.
 
-Iseseisvaks lugemiseks: [RBAC ja ligipääsu kontroll](https://hkhk-tk.github.io/is1-automatiseerimine/teemad/rbac/).
+Loe juurde: [RBAC ja ligipääsu kontroll](https://hkhk-tk.github.io/is1-automatiseerimine/teemad/rbac/).
 
 ## Juhtimine: kes kinnitab ja kus on logi
 
@@ -108,7 +108,7 @@ Buildi logi ei ole auditilogi. See asub controlleri kettal, kustub koos buildiga
 
 Kokku vastab see automatiseerimise juhtimise kolmele põhinõudele: tegevus on testitud ja kinnitatud (Jenkinsfile kaitstud harus), piirid on paigas enne käivitamist (folder, credential, agendi label, `submitter`) ja tegevusest jääb jälg (logi väljaspool Jenkinsit). Kompromiss on kiirus. Kui ainus kinnitaja on puhkusel, kinnitab administraator ise. Kinnitajaks pannakse seepärast grupp ja inimese kinnitust nõutakse ainult riskantsele muudatusele.
 
-Iseseisvaks lugemiseks: [IT-teenuste haldus (ITSM)](https://hkhk-tk.github.io/is1-automatiseerimine/teemad/itsm/).
+Loe juurde: [IT-teenuste haldus (ITSM)](https://hkhk-tk.github.io/is1-automatiseerimine/teemad/itsm/).
 
 ## Jenkins või GitHub Actions lähemalt
 
@@ -118,7 +118,7 @@ Self-hosted runner tundub kompromiss: GitHub haldab serverit, sina masinat sisev
 
 Vahel pakutakse kolmandaks valikuks RPA-d (*robotic process automation*). RPA robot klikib graafilises liideses kasutaja kontoga (UiPath, avatud lähtekoodiga Robot Framework). Infra jaoks on see vale tööriist. Robot ei tea soovitud olekut, ta kordab klikke ja liidese muudatus pärast uuendust lõhub töö vaikselt. Dry-run'i ega idempotentsust ei ole ja auditilogis on inimese nimi, mitte automaatika oma. Serveritel, võrguseadmetel ja pilvel on SSH, API või NETCONF, ja seal töötavad Ansible, OpenTofu ja pipeline. RPA-l on koht seal, kus vanal rakendusel API puudub, ja ka siis ainult ajutise sillana.
 
-Iseseisvaks lugemiseks: [RPA, äriprotsessid ja IT-automatiseerimine](https://hkhk-tk.github.io/is1-automatiseerimine/teemad/rpa-ja-aeriprotsessid/).
+Loe juurde: [RPA, äriprotsessid ja IT-automatiseerimine](https://hkhk-tk.github.io/is1-automatiseerimine/teemad/rpa-ja-aeriprotsessid/).
 
 ## Kokkuvõte
 
