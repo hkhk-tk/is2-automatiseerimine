@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" font-family="Inter, Arial, sans-serif" font-size="14" fill="#212121">
+<rect width="800" height="300" fill="#ffffff"/>
+<rect x="10" y="10" width="380" height="280" rx="8" fill="#ffffff" stroke="#5e35b1" stroke-width="1.5"/>
+<text x="200" y="38" text-anchor="middle" font-weight="bold" font-size="16">count: objekt = järjekorranumber</text>
+<rect x="410" y="10" width="380" height="280" rx="8" fill="#ffffff" stroke="#5e35b1" stroke-width="1.5"/>
+<text x="600" y="38" text-anchor="middle" font-weight="bold" font-size="16">for_each: objekt = võti</text>
+<g font-family="Inter, Arial, sans-serif">
+<rect x="25" y="55" width="350" height="34" rx="8" fill="#ede7f6"/><text x="40" y="77">lab[0]  web01</text><text x="360" y="77" text-anchor="end">jääb</text>
+<rect x="25" y="95" width="350" height="34" rx="8" fill="#fff3e0" stroke="#ff9100"/><text x="40" y="117">lab[1]  app01</text><text x="360" y="117" text-anchor="end">kustutatakse</text>
+<rect x="25" y="135" width="350" height="34" rx="8" fill="#fff3e0" stroke="#ff9100"/><text x="40" y="157">lab[2]  rmq01 → lab[1]</text><text x="360" y="157" text-anchor="end">-/+ asendus</text>
+<rect x="25" y="175" width="350" height="34" rx="8" fill="#fff3e0" stroke="#ff9100"/><text x="40" y="197">lab[3]  mc01 → lab[2]</text><text x="360" y="197" text-anchor="end">-/+ asendus</text>
+<rect x="25" y="215" width="350" height="34" rx="8" fill="#fff3e0" stroke="#ff9100"/><text x="40" y="237">lab[4]  db01 → lab[3]</text><text x="360" y="237" text-anchor="end">-/+ asendus</text>
+<text x="200" y="274" text-anchor="middle">puudutab 4 masinat</text>
+<rect x="425" y="55" width="350" height="34" rx="8" fill="#ede7f6"/><text x="440" y="77">lab["web01"]</text><text x="760" y="77" text-anchor="end">jääb</text>
+<rect x="425" y="95" width="350" height="34" rx="8" fill="#fff3e0" stroke="#ff9100"/><text x="440" y="117">lab["app01"]</text><text x="760" y="117" text-anchor="end">kustutatakse</text>
+<rect x="425" y="135" width="350" height="34" rx="8" fill="#ede7f6"/><text x="440" y="157">lab["rmq01"]</text><text x="760" y="157" text-anchor="end">jääb</text>
+<rect x="425" y="175" width="350" height="34" rx="8" fill="#ede7f6"/><text x="440" y="197">lab["mc01"]</text><text x="760" y="197" text-anchor="end">jääb</text>
+<rect x="425" y="215" width="350" height="34" rx="8" fill="#ede7f6"/><text x="440" y="237">lab["db01"]</text><text x="760" y="237" text-anchor="end">jääb</text>
+<text x="600" y="274" text-anchor="middle">puudutab 1 masinat</text>
+</g>
+</svg>

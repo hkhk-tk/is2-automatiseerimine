@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Inter, Arial, sans-serif" font-size="15" fill="#212121">
+  <defs>
+    <marker id="nool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7e57c2"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="260" fill="#ffffff"/>
+
+  <rect x="20" y="20" width="420" height="60" rx="8" fill="#ede7f6" stroke="#7e57c2"/>
+  <text x="36" y="45" font-weight="700">Jenkins · Build Artifacts</text>
+  <text x="36" y="67" font-size="13">arhiveeritud WAR buildi lehel, sha1sum</text>
+
+  <rect x="20" y="100" width="420" height="60" rx="8" fill="#ede7f6" stroke="#7e57c2"/>
+  <text x="36" y="125" font-weight="700">Nexus · .sha1 fail</text>
+  <text x="36" y="147" font-size="13">labori-seis-1.1.0-&lt;n&gt;-&lt;sha&gt;.war.sha1</text>
+
+  <rect x="20" y="180" width="420" height="60" rx="8" fill="#ede7f6" stroke="#7e57c2"/>
+  <text x="36" y="205" font-weight="700">Allalaaditud WAR</text>
+  <text x="36" y="227" font-size="13">curl -fsSLO &lt;downloadUrl&gt; ja sha1sum</text>
+
+  <rect x="540" y="90" width="240" height="80" rx="8" fill="#fff3e0" stroke="#ff9100" stroke-width="2"/>
+  <text x="660" y="125" text-anchor="middle" font-weight="700">Kolm räsi on samad</text>
+  <text x="660" y="149" text-anchor="middle" font-size="13">üks ja sama fail</text>
+
+  <line x1="440" y1="50" x2="536" y2="110" stroke="#7e57c2" stroke-width="2" marker-end="url(#nool)"/>
+  <line x1="440" y1="130" x2="536" y2="130" stroke="#7e57c2" stroke-width="2" marker-end="url(#nool)"/>
+  <line x1="440" y1="210" x2="536" y2="150" stroke="#7e57c2" stroke-width="2" marker-end="url(#nool)"/>
+</svg>

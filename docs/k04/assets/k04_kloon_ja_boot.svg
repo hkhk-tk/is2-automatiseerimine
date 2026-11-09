@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 230" width="800" font-family="Inter, Arial, sans-serif" font-size="14" fill="#212121">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7e57c2"/></marker></defs>
+<rect width="800" height="230" fill="#ffffff"/>
+<g text-anchor="middle">
+<rect x="10" y="15" width="140" height="130" rx="8" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.5"/>
+<text x="80" y="45" font-weight="bold">1. Kloon</text><text x="80" y="72">mall 9000 →</text><text x="80" y="92">VM 1101</text><text x="80" y="112">(full clone)</text>
+<rect x="170" y="15" width="140" height="130" rx="8" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.5"/>
+<text x="240" y="45" font-weight="bold">2. Riistvara</text><text x="240" y="72">CPU, RAM,</text><text x="240" y="92">ketas, võrk</text>
+<rect x="330" y="15" width="140" height="130" rx="8" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.5"/>
+<text x="400" y="45" font-weight="bold">3. cloud-init</text><text x="400" y="72">draiv ide2:</text><text x="400" y="92">user-data,</text><text x="400" y="112">network-config,</text><text x="400" y="132">meta-data</text>
+<rect x="490" y="15" width="140" height="130" rx="8" fill="#fff3e0" stroke="#ff9100" stroke-width="1.5"/>
+<text x="560" y="45" font-weight="bold">4. Esimene boot</text><text x="560" y="72">cloud-init seab</text><text x="560" y="92">IP, hostinime,</text><text x="560" y="112">SSH võtme</text>
+<rect x="650" y="15" width="140" height="130" rx="8" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.5"/>
+<text x="720" y="45" font-weight="bold">5. Agent</text><text x="720" y="72">teatab IP</text><text x="720" y="92">Tofu kirjutab</text><text x="720" y="112">state'i</text>
+</g>
+<g stroke="#7e57c2" stroke-width="2" marker-end="url(#a)">
+<line x1="150" y1="80" x2="168" y2="80"/><line x1="310" y1="80" x2="328" y2="80"/><line x1="470" y1="80" x2="488" y2="80"/><line x1="630" y1="80" x2="648" y2="80"/>
+</g>
+<g text-anchor="middle">
+<rect x="10" y="165" width="460" height="40" rx="8" fill="#5e35b1"/><text x="240" y="190" fill="#ffffff">Tofu → Proxmoxi API</text>
+<rect x="490" y="165" width="140" height="40" rx="8" fill="#ff9100"/><text x="560" y="190" fill="#212121">VM-i sees</text>
+<rect x="650" y="165" width="140" height="40" rx="8" fill="#5e35b1"/><text x="720" y="190" fill="#ffffff">agent → Tofu</text>
+</g>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" width="800" font-family="Inter, Arial, sans-serif" font-size="14" fill="#212121">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7e57c2"/></marker></defs>
+<rect width="800" height="340" fill="#ffffff"/>
+<rect x="10" y="10" width="420" height="320" rx="8" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.5"/>
+<text x="30" y="38" font-weight="bold" font-size="16">k04-tofu/ (Gitis)</text>
+<text x="30" y="66">versions.tf, variables.tf, locals.tf</text>
+<text x="30" y="90">data.tf, main.tf, outputs.tf</text>
+<text x="30" y="114">moved.tf, inventory.tf, inventory.tftpl</text>
+<text x="30" y="138">backend.tf, terraform.tfvars.example</text>
+<text x="30" y="162">.terraform.lock.hcl, .gitignore</text>
+<text x="30" y="194" font-weight="bold">modules/vm/</text>
+<text x="30" y="218">versions.tf, variables.tf, main.tf, outputs.tf</text>
+<text x="30" y="250" font-weight="bold">01-alused/</text>
+<text x="30" y="274">main.tf (osad 1–2)</text>
+<rect x="460" y="10" width="330" height="200" rx="8" fill="#fff3e0" stroke="#ff9100" stroke-width="1.5"/>
+<text x="480" y="38" font-weight="bold" font-size="16">Ainult control node'il</text>
+<text x="480" y="66">.terraform/</text>
+<text x="480" y="90">terraform.tfvars, *.auto.tfvars</text>
+<text x="480" y="114">terraform.tfstate*</text>
+<text x="480" y="138">backend.hcl, *.tfplan</text>
+<text x="480" y="162">~/.config/is1/*.env</text>
+<rect x="460" y="250" width="330" height="80" rx="8" fill="#ffffff" stroke="#5e35b1" stroke-width="1.5"/>
+<text x="625" y="280" text-anchor="middle" font-weight="bold">../k02-ansible/inventory.ini</text>
+<text x="625" y="304" text-anchor="middle">genereeritud, Gitis</text>
+<line x1="430" y1="290" x2="456" y2="290" stroke="#7e57c2" stroke-width="2" marker-end="url(#a)"/>
+</svg>

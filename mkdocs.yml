@@ -80,6 +80,45 @@ nav:
       - Loeng: k03/loeng.md
       - Süvenemine: k03/syvenemine.md
       - Lisaülesanded: k03/lisa.md
+  - 4. kohtumine · OpenTofu:
+      - Loeng: k04/loeng.md
+      - Süvenemine: k04/syvenemine.md
+      - Moodul, moved ja state: k04/lab-3-moodul-state.md
+      - Elutsükkel ja kaitsed: k04/lab-5-elutsukkel.md
+      - Import, drift ja keskkonnad: k04/lab-6-import-drift.md
+      - Golden image Packeriga: k04/lab-7-kuldne-mall.md
+      - "Intsident: state ja tegelikkus": k04/lab-8-intsident.md
+      - Abi: k04/abi.md
+      - Lisaülesanded: k04/lisa.md
+  - 5. kohtumine · GitHub Actions:
+      - Loeng: k05/loeng.md
+      - Süvenemine: k05/syvenemine.md
+      - Health check ja rollback: k05/lab-6-tagasipoore.md
+      - Katkine pipeline: k05/lab-7-katkine-pipeline.md
+      - Abi: k05/abi.md
+      - Lisaülesanded: k05/lisa.md
+  - 6. kohtumine · Jenkins, SonarQube ja Nexus:
+      - Loeng: k06/loeng.md
+      - Süvenemine: k06/syvenemine.md
+      - Jenkins koodina: k06/lab-5-jenkins-koodina.md
+      - Õigused, varundus ja taaste: k06/lab-6-haldus.md
+      - Neli punast buildi: k06/lab-7-neli-punast.md
+      - Abi: k06/abi.md
+      - Lisaülesanded: k06/lisa.md
+  - 7. kohtumine · Kubernetes ja GitOps:
+      - Loeng: k07/loeng.md
+      - Süvenemine: k07/syvenemine.md
+      - Ressursid ja rikkeotsing: k07/lab-3-ressursid.md
+      - Neli riket: k07/lab-5-neli-riket.md
+      - Helm alused: k07/lab-6-helm.md
+      - Abi: k07/abi.md
+      - Lisaülesanded: k07/lisa.md
+  - Pilv (AWS):
+      - K3 · ECR ja Compose: kodutood/k03-aws.md
+      - K4 · VPC ja EC2 OpenTofuga: kodutood/k04-aws.md
+      - K5 · GitHub Actions → EC2: kodutood/k05-aws.md
+      - K6 · Jenkins → EC2: kodutood/k06-aws.md
+      - K7 · k3s EC2-l: kodutood/k07-aws.md
   - IS1 kursus: https://hkhk-tk.github.io/is1-automatiseerimine/
 
 extra:

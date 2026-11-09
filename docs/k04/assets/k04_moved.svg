@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" width="800" font-family="Inter, Arial, sans-serif" font-size="14" fill="#212121">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7e57c2"/></marker></defs>
+<rect width="800" height="280" fill="#ffffff"/>
+<rect x="10" y="10" width="520" height="70" rx="8" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.5"/>
+<text x="270" y="36" text-anchor="middle" font-weight="bold">state enne</text>
+<text x="270" y="62" text-anchor="middle">proxmox_virtual_environment_vm.lab["db01"] → VM 1105</text>
+<rect x="10" y="190" width="520" height="80" rx="8" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.5"/>
+<text x="270" y="216" text-anchor="middle" font-weight="bold">state pärast</text>
+<text x="270" y="240" text-anchor="middle">module.vm["db01"].</text>
+<text x="270" y="260" text-anchor="middle">proxmox_virtual_environment_vm.this → VM 1105</text>
+<line x1="270" y1="80" x2="270" y2="186" stroke="#7e57c2" stroke-width="2" marker-end="url(#a)"/>
+<rect x="285" y="118" width="230" height="34" rx="8" fill="#ffffff" stroke="#7e57c2"/>
+<text x="400" y="140" text-anchor="middle">moved { from, to }</text>
+<rect x="590" y="110" width="200" height="90" rx="8" fill="#fff3e0" stroke="#ff9100" stroke-width="1.5"/>
+<text x="690" y="138" text-anchor="middle" font-weight="bold">ilma moved'ita</text>
+<text x="690" y="162" text-anchor="middle">destroy + create:</text>
+<text x="690" y="184" text-anchor="middle">uus VM 1105, uus ketas</text>
+<path d="M530,45 C620,45 690,60 690,106" fill="none" stroke="#ff9100" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#a)"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 170" width="800" font-family="Inter, Arial, sans-serif" font-size="14" fill="#212121">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7e57c2"/></marker></defs>
+<rect width="800" height="170" fill="#ffffff"/>
+<g text-anchor="middle">
+<rect x="10" y="15" width="140" height="70" rx="8" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.5"/><text x="80" y="45">vaikeväärtus</text><text x="80" y="67">variables.tf</text>
+<rect x="170" y="15" width="140" height="70" rx="8" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.5"/><text x="240" y="45">TF_VAR_&lt;nimi&gt;</text><text x="240" y="67">keskkond</text>
+<rect x="330" y="15" width="140" height="70" rx="8" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.5"/><text x="400" y="56">terraform.tfvars</text>
+<rect x="490" y="15" width="140" height="70" rx="8" fill="#ede7f6" stroke="#5e35b1" stroke-width="1.5"/><text x="560" y="56">*.auto.tfvars</text>
+<rect x="650" y="15" width="140" height="70" rx="8" fill="#fff3e0" stroke="#ff9100" stroke-width="1.5"/><text x="720" y="45">-var</text><text x="720" y="67">-var-file</text>
+</g>
+<g stroke="#7e57c2" stroke-width="2" marker-end="url(#a)">
+<line x1="150" y1="50" x2="168" y2="50"/><line x1="310" y1="50" x2="328" y2="50"/><line x1="470" y1="50" x2="488" y2="50"/><line x1="630" y1="50" x2="648" y2="50"/>
+<line x1="20" y1="115" x2="780" y2="115"/>
+</g>
+<text x="400" y="145" text-anchor="middle">hilisem võidab: kui sama muutuja on mitmes kohas, kehtib parempoolne</text>
+</svg>
