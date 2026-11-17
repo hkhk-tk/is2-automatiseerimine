@@ -6,7 +6,7 @@ tags:
 
 # Praktikum: moodul, moved ja state
 
-Tee see leht pärast IS1 praktikumi osa [Viis VM-i muutujatega](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-2-viis-vmi/), kui viis VM-i töötavad ja `tofu plan` ütleb "No changes". Kui oled juba teinud IS1 osa [Inventory Tofu väljundist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-4-uks-kask/), muuda pärast moodulisse tõstmist ka `locals.tf`-is IP-de avaldis, nii et see loeb väärtused `module.vm[...]` väljunditest.
+Tee see leht pärast IS1 praktikumi osa [Viis VM-i muutujatega](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-7-viis-vm-i-muutujatega), kui viis VM-i töötavad ja `tofu plan` ütleb "No changes". Kui oled juba teinud IS1 osa [Inventory Tofu väljundist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-9-inventory-tofu-valjundist), muuda pärast moodulisse tõstmist ka `locals.tf`-is IP-de avaldis, nii et see loeb väärtused `module.vm[...]` väljunditest.
 
 State, mis on ainult control node'i kettal, kaob koos kettaga, ja kaks inimest, kes käivitavad samal ajal `apply`, kirjutavad teineteise töö üle. Viie VM-i kirjeldust ei saa praegu ka teises kohas uuesti kasutada. Tõstad VM-i kirjelduse moodulisse `modules/vm`, viid state'i koolitaja S3 bucketisse ja lülitad sisse luku, mis ei lase kahel käivitusel korraga kirjutada. Mõlemad muudatused tehakse töötava taristu peal ja on õnnestunud ainult siis, kui ükski masin seda ei märganud: iga etapi lõpus on plaan "No changes".
 

@@ -37,7 +37,7 @@ Kui ülesande juures pole teisiti, läheb tulemus kausta `k04-tofu/` ja otsused 
 
 ### 1. Validate'i ja plaani piirid
 
-**Tase:** lihtne · **Eeldus:** [Üks VM koodist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-1-uks-vm/)
+**Tase:** lihtne · **Eeldus:** [Üks VM koodist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-3-test01-mallist)
 
 Tofu kontrollib koodi kolmes etapis: `validate`, `plan` ja `apply`. Igaüks näeb erinevat osa tegelikkusest, ja kui sa ei tea, milline etapp millise vea leiab, otsid tõrget valest kohast.
 
@@ -80,7 +80,7 @@ tofu plan -detailed-exitcode > /dev/null; echo "kood $?"
 
 ### 2. State lähemalt
 
-**Tase:** lihtne · **Eeldus:** [Üks VM koodist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-1-uks-vm/)
+**Tase:** lihtne · **Eeldus:** [Üks VM koodist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-3-test01-mallist)
 
 State on JSON-fail, mida tavaliselt keegi ei vaata. Enne kui see bucketisse läheb, pead teadma, mida Tofu iga objekti kohta mäletab ja mis sinna peale sinu koodi veel satub.
 
@@ -121,7 +121,7 @@ jq '{serial, lineage, ressursid: [.resources[] | "\(.mode) \(.type).\(.name)"]}'
 
 ### 3. Kust muutuja väärtuse saab
 
-**Tase:** lihtne · **Eeldus:** [Viis VM-i muutujatega](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-2-viis-vmi/)
+**Tase:** lihtne · **Eeldus:** [Viis VM-i muutujatega](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-7-viis-vm-i-muutujatega)
 
 Sama muutuja väärtus võib tulla viiest kohast ja plaan näitab ainult lõplikku väärtust. `dns_servers` on `variables.tf`-is vaikeväärtusega ja lisaks `terraform.tfvars`-is; kui plaan näitab ootamatut DNS-serverit, pead teadma, kust otsida.
 
@@ -307,7 +307,7 @@ tofu plan -detailed-exitcode > /dev/null; echo "kood $?"              # 0
 
 ### 6. Provisioner võrdluseks
 
-**Tase:** keskmine · **Eeldus:** [Üks VM koodist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-1-uks-vm/)
+**Tase:** keskmine · **Eeldus:** [Üks VM koodist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-3-test01-mallist)
 
 Vanemates juhendites ja päritud repodes seadistatakse masin Tofu seest provisioner'iga. Teed seda korra, et näha, miks laboris kasutatakse selle asemel cloud-init'i ja Ansible'it.
 
@@ -372,7 +372,7 @@ tofu plan -detailed-exitcode > /dev/null; echo "kood $?"
 
 ### 7. Sama kood Terraformiga
 
-**Tase:** keskmine · **Eeldus:** [Üks VM koodist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-1-uks-vm/); mida rohkem koodi sul on, seda rohkem võrdlus näitab
+**Tase:** keskmine · **Eeldus:** [Üks VM koodist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-3-test01-mallist); mida rohkem koodi sul on, seda rohkem võrdlus näitab
 
 Töökohas on kood tõenäoliselt kirjutatud Terraformile. Käivitad oma OpenTofu koodi `terraform`-iga ja võrdled kahe tööriista plaane, et teaksid, millised kohad üle ei kandu.
 
@@ -440,7 +440,7 @@ ls /tmp/k04-tf 2>/dev/null || echo koristatud
 
 ### 8. user-data templatefile'iga
 
-**Tase:** keskmine · **Eeldus:** [Viis VM-i muutujatega](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-2-viis-vmi/)
+**Tase:** keskmine · **Eeldus:** [Viis VM-i muutujatega](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-7-viis-vm-i-muutujatega)
 
 Proxmoxi cloud-init vahekaart annab ainult kasutaja, võtme ja võrgu. Kõik muu, mis esimesel käivitusel vaja, peab tulema oma user-data failist.
 
@@ -493,7 +493,7 @@ tofu plan
 
 ### 9. tofu test Proxmoxi vastu
 
-**Tase:** keskmine · **Eeldus:** [Viis VM-i muutujatega](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-2-viis-vmi/) · **Esita:** `k04-tofu/tests/integration/it01.tftest.hcl`
+**Tase:** keskmine · **Eeldus:** [Viis VM-i muutujatega](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-7-viis-vm-i-muutujatega) · **Esita:** `k04-tofu/tests/integration/it01.tftest.hcl`
 
 Mock-testid ei leia viga, mis tuleb välja alles Proxmoxis: vale mall, puuduv õigus, agent, mis ei vasta. Vaja on test, mis loob Proxmoxis VM-i, kontrollib seda ja koristab enda järel.
 
@@ -546,7 +546,7 @@ tofu test | tail -1
 
     Kontroll: esimene käsk näitab `run "it01_agent"... pass` ja `Success! 1 passed`, teine ainult `tests/` kausta teste ja UI pool'is pole `it01`-te. Kui katkestad testi Ctrl+C-ga enne koristust, jääb `it01` alles ja see tuleb UI-s kustutada. `vm_id` ja IP on näites `IS1_VMID_BASE` 1100 ja võrk `10.10.1.0`.
 
-    **Miks nii.** Fail on alamkaustas, sest tavaline `tofu test` (ka [Esitamise](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-9-esitamine/) värskes kloonis) loeb ainult `tests/` kausta faile ega tohi VM-i luua. `-test-directory=tests/integration`-iga loob Tofu VM-i, ootab agenti, kontrollib ja kustutab lõpus.
+    **Miks nii.** Fail on alamkaustas, sest tavaline `tofu test` (ka [Esitamise](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-10-esitamine) värskes kloonis) loeb ainult `tests/` kausta faile ega tohi VM-i luua. `-test-directory=tests/integration`-iga loob Tofu VM-i, ootab agenti, kontrollib ja kustutab lõpus.
 
 ### 10. Plaani kokkuvõte pipeline'i jaoks
 

@@ -16,11 +16,11 @@ Tee osad selles järjekorras: osa 1, osa 2, leht [Moodul, moved ja state](lab-3-
 
 ## Osa 1 · Üks VM lähemalt
 
-Osa 1 sammud tehakse VM-i `test01` peal, enne kui IS1 sammus [Koristus ja commit](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-1-uks-vm/#koristus-ja-commit) selle kustutad.
+Osa 1 sammud tehakse VM-i `test01` peal, enne kui IS1 sammus [Koristus ja commit](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-6-koristus-ja-commit) selle kustutad.
 
 ### 1.1 Leia Tofu töö Proxmoxi logist
 
-Tee see samm pärast IS1 sammu [Loo test01](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-1-uks-vm/#loo-test01).
+Tee see samm pärast IS1 osa [test01 mallist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-3-test01-mallist).
 
 Tofu ütleb, et lõi VM-i. Proxmox peab sama asja oma logis näitama, sest audit käib serveri poolel, mitte sinu terminalis.
 
@@ -36,7 +36,7 @@ Kui VM kaob või muutub öösel, otsitakse süüdlast kõigepealt Proxmoxi task-
 
 ### 1.2 Vaata VM-i seest
 
-Tee see samm pärast IS1 sammu [Tee VM uuesti](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-1-uks-vm/#tee-vm-uuesti), kui `ssh` töötab.
+Tee see samm pärast IS1 sammu [Tee VM uuesti](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#53-tee-vm-uuesti), kui `ssh` töötab.
 
 Tofu näeb VM-i ainult väljast, API kaudu. Kui Ansible ei saa hiljem uue masinaga ühendust, otsid viga just neist failidest.
 
@@ -105,7 +105,7 @@ Kui jõudsid kiiremini: [Lisaülesanded → 1. Validate'i ja plaani piirid](lisa
 
 ## Osa 2 · Viis VM-i lähemalt
 
-Osa 2 tee pärast IS1 sammu [Tee kõik viis](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-2-viis-vmi/#tee-koik-viis), kui viis VM-i töötavad ja `tofu plan` ütleb "No changes".
+Osa 2 tee pärast IS1 sammu [Tee kõik viis](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#74-koik-viis), kui viis VM-i töötavad ja `tofu plan` ütleb "No changes".
 
 **Kui teed seda tööl iga päev:** `tofu state list` näitab viit `proxmox_virtual_environment_vm.lab[...]` aadressi, mille lõid `for_each`-i, `validation`-i ja salvestatud plaaniga. Kui see on sul juba korras, mine otse sammu „[2.6 Kirjuta tofu test](#26-kirjuta-tofu-test)“.
 
@@ -191,7 +191,7 @@ Vanemas koodis on `count` VM-ide jaoks tavaline. Kes selle koodi üle võtab ja 
 
 ### 2.5 Uuri avaldisi konsoolis
 
-Tee see samm pärast IS1 sammu [Anna tulemus output'iga välja](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-2-viis-vmi/#anna-tulemus-outputiga-valja).
+Tee see samm pärast IS1 sammu [Anna tulemus output'iga välja](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-8-tulemus-outputiga-valja).
 
 Enne testide kirjutamist proovid `tofu console`-is avaldisi, millest selle korra kood koosneb. Konsool loeb sinu muutujad, locals'id ja state'i, aga ei muuda midagi.
 
@@ -324,7 +324,7 @@ Kui jõudsid kiiremini: [Lisaülesanded → 3. Kust muutuja väärtuse saab](lis
 
 ## Osa 3 · Üks käsk: inventory, Ansible ja up.sh
 
-Osa 3 tee pärast IS1 osa [Inventory Tofu väljundist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-4-uks-kask/) ja lehte [Moodul, moved ja state](lab-3-moodul-state.md). Enne alustamist peab `jq -r .backend.type .terraform/terraform.tfstate` andma `s3`. Osa vajab 2. kohtumise Ansible'i koodi kaustas `k02-ansible/` (`site.yml`, `ansible.cfg`, rollid, roll `common` ootab cloud-init'i) ja Vault'i parooli.
+Osa 3 tee pärast IS1 osa [Inventory Tofu väljundist](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#osa-9-inventory-tofu-valjundist) ja lehte [Moodul, moved ja state](lab-3-moodul-state.md). Enne alustamist peab `jq -r .backend.type .terraform/terraform.tfstate` andma `s3`. Osa vajab 2. kohtumise Ansible'i koodi kaustas `k02-ansible/` (`site.yml`, `ansible.cfg`, rollid, roll `common` ootab cloud-init'i) ja Vault'i parooli.
 
 Tofu teab, millised masinad on olemas, Ansible teab, mis on nende sees, ja nende vahel oled praegu sina: ootad, kuni masin käivitub, sisestad Vault'i parooli. Lõpuks loob skript `up.sh` Labori seisu tühjast pool'ist ilma ühegi käsitsi sammuta ja kogu Labori seis on koodis.
 
@@ -494,7 +494,7 @@ Kui jõudsid kiiremini: [Lisaülesanded → 10. Plaani kokkuvõte pipeline'i jao
 
 ## Osa 4 · Värske kloon enne esitamist
 
-Osa 4 tee enne IS1 sammu [PR, merge ja tag](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab-9-esitamine/#pr-merge-ja-tag).
+Osa 4 tee enne IS1 sammu [PR, merge ja tag](https://hkhk-tk.github.io/is1-automatiseerimine/k04/lab/#102-commit-pr-ja-tag).
 
 **Kui teed seda tööl iga päev:** sinu meeskonna pipeline käivitab `tofu validate` ja `tofu test` värskes kloonis ning `git ls-files` ei näita ühtki state'i, `tfvars`-i ega `backend.hcl`-i. Kui see on sul juba korras, mine otse sammu „[4.1 Proovi värskest kloonist](#41-proovi-varskest-kloonist)“.
 
