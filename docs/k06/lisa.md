@@ -8,7 +8,7 @@ tags:
 
 # Lisaülesanded: Jenkins, SonarQube ja Nexus
 
-Ülesanded jätkavad IS1 praktikumi [Jenkins, SonarQube ja Nexus](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab/) pipeline'i ja eeldavad selle osi, mis on ülesande juures kirjas.
+Ülesanded jätkavad IS1 praktikumi [Jenkins, SonarQube ja Nexus](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab/) pipeline'i ja eeldavad selle osi, mis on ülesande juures kirjas.
 
 | Ülesanne | Tase | Tulemus |
 |---|---|---|
@@ -40,7 +40,7 @@ Iga ülesanne on sinu repositooriumis eraldi issue (label `edasijõudnu`) ja fai
 
 ### 1. Freestyle: arhiveeritud artefakt ja workspace
 
-**Tase:** lihtne · **Eeldus:** [Agent ja esimene pipeline](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab-1-agent/)
+**Tase:** lihtne · **Eeldus:** [Agent ja esimene pipeline](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab-1-agent/)
 
 Pipeline arhiveerib WAR-i `post`-plokis sammuga `archiveArtifacts`, kuid buildi lehelt ei ole näha, mis sellest buildist alles jääb ja kus. Kontrollid seda Freestyle job'iga `kes-olen`.
 
@@ -168,7 +168,7 @@ done
 
 ### 4. Jenkinsfile'i kontroll enne push'i
 
-**Tase:** keskmine · **Eeldus:** [Agent ja esimene pipeline](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab-1-agent/) · **Esita:** `k06-jenkins/validate-jenkinsfile.sh`
+**Tase:** keskmine · **Eeldus:** [Agent ja esimene pipeline](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab-1-agent/) · **Esita:** `k06-jenkins/validate-jenkinsfile.sh`
 
 Põhiülesannetes said süntaksiveast teada alles pärast push'i, kui build ebaõnnestus esimesel real. Iga selline katse jääb commit'ide ajalukku ja buildide järjekorda. Jenkinsil on API, mis kontrollib deklaratiivse faili süntaksit ilma buildi käivitamata.
 
@@ -304,7 +304,7 @@ bash autograde/check.sh k06 triggers
 
 ### 6. `mvn deploy` ilma pluginata
 
-**Tase:** keskmine · **Eeldus:** [Quality gate ja Nexus](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab-3-sonar-nexus/) · **Esita:** `k06-jenkins/Jenkinsfile`
+**Tase:** keskmine · **Eeldus:** [Quality gate ja Nexus](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab-3-sonar-nexus/) · **Esita:** `k06-jenkins/Jenkinsfile`
 
 `nexusArtifactUploader` on Jenkinsi plugin ja töötab ainult Jenkinsis. Kui pipeline viiakse teise CI-süsteemi, peab WAR jõudma Nexusesse Maveni enda vahenditega.
 
@@ -637,7 +637,7 @@ printf 'user = "vaatleja:%s"\n' "$P" | curl -gsS -K- 'http://localhost:8090/api/
 
 ### 12. Sama pipeline Actionsis
 
-**Tase:** keskmine · **Eeldus:** [Esitamine](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab-5-esitamine/), GitHub Actionsi kohtumise `ci.yml`
+**Tase:** keskmine · **Eeldus:** [Esitamine](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab-5-esitamine/), GitHub Actionsi kohtumise `ci.yml`
 
 Paljud meeskonnad viivad pipeline'id Jenkinsist GitHub Actionsisse või vastupidi. Vaatad, kui suur osa sinu pipeline'ist ei sõltu tööriistast.
 
@@ -738,7 +738,7 @@ Vihje: 1. kohtumise `systemd/labseis-check.service` ja `.timer` sobivad ka selle
 
 ### 13. Saladuste rotatsioon ilma punase buildita
 
-**Tase:** raske · **Eeldus:** [Quality gate ja Nexus](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab-3-sonar-nexus/) · **Esita:** `k06-jenkins/rotatsiooni-kontroll.sh`
+**Tase:** raske · **Eeldus:** [Quality gate ja Nexus](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab-3-sonar-nexus/) · **Esita:** `k06-jenkins/rotatsiooni-kontroll.sh`
 
 Folderis on kaks pikaajalist saladust: Sonari token (`sonar`) ja GitHubi token (`github`). Need vahetatakse, kui token lekib, kui inimene lahkub või kui aegumiskuupäev läheneb. Vahetus peab käima nii, et pipeline ei seisku ja vana token on pärast seda tõestatult kehtetu.
 
@@ -1070,7 +1070,7 @@ git -C ~/vork-konf pull -q && git -C ~/vork-konf log --stat -1
 
 ## Arutelu
 
-**Eeldus:** [Esitamine](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab-5-esitamine/) · **Esita:** `k06-jenkins/NOTES.md`
+**Eeldus:** [Esitamine](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab-5-esitamine/) · **Esita:** `k06-jenkins/NOTES.md`
 
 Vasta lühidalt failis `k06-jenkins/NOTES.md`. Mitmele küsimusele ei ole üht õiget vastust: vastus sõltub sellest, kui palju inimesi Jenkinsit kasutab, kui tundlik on kood ja kui palju maksab tund seisakut.
 

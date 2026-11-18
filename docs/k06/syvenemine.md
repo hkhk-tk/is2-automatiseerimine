@@ -8,11 +8,11 @@ tags:
 
 # Süvenemine: Jenkins, SonarQube ja Nexus
 
-Need osad jätkavad IS1 praktikumi [Jenkins, SonarQube ja Nexus](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab/) pipeline'i. Käsud käivitad control node'il kursuse repositooriumi juurkaustas harul `k06-jenkins`, kui sammu juures pole kirjas teisiti. Terved teemad sandbox-Jenkinsist, haldusest ja intsidendist on eraldi lehtedel [Jenkins koodina](lab-5-jenkins-koodina.md), [Õigused, varundus ja taaste](lab-6-haldus.md) ja [Neli punast buildi](lab-7-neli-punast.md).
+Need osad jätkavad IS1 praktikumi [Jenkins, SonarQube ja Nexus](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab/) pipeline'i. Käsud käivitad control node'il kursuse repositooriumi juurkaustas harul `k06-jenkins`, kui sammu juures pole kirjas teisiti. Terved teemad sandbox-Jenkinsist, haldusest ja intsidendist on eraldi lehtedel [Jenkins koodina](lab-5-jenkins-koodina.md), [Õigused, varundus ja taaste](lab-6-haldus.md) ja [Neli punast buildi](lab-7-neli-punast.md).
 
 ## Osa 1 · Agent lähemalt
 
-Tee need sammud pärast IS1 mooduli [Agent ja esimene pipeline](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab-1-agent/) sammu „Vaata, kes ja kus ehitab“, kui job `kes-olen` on olemas.
+Tee need sammud pärast IS1 mooduli [Agent ja esimene pipeline](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab-1-agent/) sammu „Vaata, kes ja kus ehitab“, kui job `kes-olen` on olemas.
 
 ### 1.1 Executorite järjekord
 
@@ -78,7 +78,7 @@ Lisaülesanne [4. Jenkinsfile'i kontroll enne push'i](lisa.md#4-jenkinsfilei-kon
 
 ## Osa 2 · Triggerid, piirid ja post
 
-Tee need sammud pärast IS1 mooduli [Triggerid](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab-2-triggerid/) lõppu, kui `pollSCM` käivitab buildi.
+Tee need sammud pärast IS1 mooduli [Triggerid](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab-2-triggerid/) lõppu, kui `pollSCM` käivitab buildi.
 
 Build, mille keegi peab nupust käivitama, jääb tegemata just siis, kui seda kõige rohkem vaja on, ja build ilma piirideta hõivab agendi ning ketta seni, kuni keegi seda märkab. Praegu on sinu pipeline'iga just nii. Lõpuks käivitub build commit'i peale ise ja väljast saab selle käivitada API tokeniga. Jenkinsfile ütleb, kui kaua build tohib kesta, mitu buildi korraga on lubatud ja mis pärast buildi alles jääb.
 
@@ -217,7 +217,7 @@ Lisaülesanne [5. Actions käivitab Jenkinsi](lisa.md#5-actions-kaivitab-jenkins
 
 ## Osa 3 · Sonar ja Nexus lähemalt
 
-Tee need sammud pärast IS1 mooduli [Quality gate ja Nexus](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab-3-sonar-nexus/) lõppu, kui WAR on Nexuses. Samm 3.2 vajab Jenkinsi arhiveeritud WAR-i, nii et tee enne osa 2 samm 2.5.
+Tee need sammud pärast IS1 mooduli [Quality gate ja Nexus](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab-3-sonar-nexus/) lõppu, kui WAR on Nexuses. Samm 3.2 vajab Jenkinsi arhiveeritud WAR-i, nii et tee enne osa 2 samm 2.5.
 
 ### 3.1 Checkstyle'i raport Sonarisse
 
@@ -321,7 +321,7 @@ Lisaülesanne [6. `mvn deploy` ilma pluginata](lisa.md#6-mvn-deploy-ilma-plugina
 
 ## Osa 4 · Image, paralleel ja deploy
 
-Tee need sammud pärast IS1 mooduli [Image samast WAR-ist](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab-4-image-deploy/) lõppu, kui etapp Docker image on roheline. Osa 2 sammud 2.3 (buildi põhjus API-st) ja 2.5 (`post`-i järjekord) peavad olema tehtud, sest deploy kasutab neid.
+Tee need sammud pärast IS1 mooduli [Image samast WAR-ist](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab-4-image-deploy/) lõppu, kui etapp Docker image on roheline. Osa 2 sammud 2.3 (buildi põhjus API-st) ja 2.5 (`post`-i järjekord) peavad olema tehtud, sest deploy kasutab neid.
 
 Kui testkeskkonda läheb teine fail kui see, mis läbis kontrollid, või paigaldus käivitub iga commit'i peale, ei saa testkeskkonna tulemusi usaldada. Pipeline kontrollib nüüd koodi, kuid ei paigalda seda kuhugi. Sama WAR, mis läbis quality gate'i ja on Nexuses, läheb Docker image'isse ning Nexuse upload ja image'i build käivituvad korraga. Avaldamine käib ainult põhiharult ja testkeskkonda paigaldab pipeline alles siis, kui inimene selle kinnitab. Iga otsus on Jenkinsfile'is kirjas, nii et seda saab üle vaadata nagu iga teist koodi.
 
@@ -484,7 +484,7 @@ Lisaülesanne [14. WAR Nexusest app01-le koos rollback'iga](lisa.md#14-war-nexus
 
 ## Osa 5 · Esitamise kontrollid
 
-Tee need sammud enne IS1 mooduli [Esitamine](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab-5-esitamine/) PR-i ja tag'i, kui oled teinud ka süvenemise osad.
+Tee need sammud enne IS1 mooduli [Esitamine](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab-5-esitamine/) PR-i ja tag'i, kui oled teinud ka süvenemise osad.
 
 ### 5.1 Vaata, mida automaatne hindaja näeb
 

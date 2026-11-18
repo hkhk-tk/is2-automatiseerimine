@@ -7,7 +7,7 @@ tags:
 
 # Loeng: GitHub Actions lähemalt
 
-Loeng jätkab IS1 [pideva integratsiooni ja tarne loengut](https://hkhk-tk.github.io/is1-automatiseerimine/k05/loeng/): DORA näitajad, ebastabiilsed testid, harumudel, matrix ja vahemälu, webhook, korratav build, võõras kood workflow's, turvakontrollid ja allkiri, rünnakud build'i vastu, deploy strateegiad, muudatuste haldus ja runner'i turve.
+Loeng jätkab IS1 [pideva integratsiooni ja tarne loengut](https://hkhk-tk.github.io/is1-automatiseerimine/ci/loeng/): DORA näitajad, ebastabiilsed testid, harumudel, matrix ja vahemälu, webhook, korratav build, võõras kood workflow's, turvakontrollid ja allkiri, rünnakud build'i vastu, deploy strateegiad, muudatuste haldus ja runner'i turve.
 
 ## DORA ja ebastabiilsus
 

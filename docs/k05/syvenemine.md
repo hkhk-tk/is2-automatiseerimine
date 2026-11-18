@@ -7,7 +7,7 @@ tags:
 
 # Süvenemine: GitHub Actions
 
-Need osad jätkavad IS1 praktikumi [Maven ja GitHub Actions](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab/) workflow'd `.github/workflows/ci.yml`. Iga osa alguses on kirjas, millise IS1 osa järel seda teha. Käsud käivitad control node'il repositooriumi juurkaustas harus `k05-actions`, kui sammu juures pole kirjas teisiti. Health check, rollback ja rikete otsimine on eraldi lehtedel [6. Health check ja rollback](lab-6-tagasipoore.md) ja [7. Katkine pipeline](lab-7-katkine-pipeline.md).
+Need osad jätkavad IS1 praktikumi [Maven ja GitHub Actions](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab/) workflow'd `.github/workflows/ci.yml`. Iga osa alguses on kirjas, millise IS1 osa järel seda teha. Käsud käivitad control node'il repositooriumi juurkaustas harus `k05-actions`, kui sammu juures pole kirjas teisiti. Health check, rollback ja rikete otsimine on eraldi lehtedel [6. Health check ja rollback](lab-6-tagasipoore.md) ja [7. Katkine pipeline](lab-7-katkine-pipeline.md).
 
 ??? info "Testitud versioonid ja dokumentatsioon"
 
@@ -17,7 +17,7 @@ Need osad jätkavad IS1 praktikumi [Maven ja GitHub Actions](https://hkhk-tk.git
 
 ## Osa 1 · Maven lähemalt
 
-Need sammud jätkavad IS1 praktikumi osa [1. Maven](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-1-maven/): tee neid pärast seda, kui `mvn -B verify` on control node'il roheline. Käsud käivitad repositooriumi juurkaustas harus `k05-actions`.
+Need sammud jätkavad IS1 praktikumi osa [1. Maven](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-1-maven/): tee neid pärast seda, kui `mvn -B verify` on control node'il roheline. Käsud käivitad repositooriumi juurkaustas harus `k05-actions`.
 
 ### Loe pom.xml
 
@@ -180,7 +180,7 @@ Kui kloon on roheline, on build korratav: kõik vajalik on Gitis. Kui kloon eba�
 
 ## Osa 2 · Workflow lähemalt
 
-Need sammud jätkavad IS1 praktikumi osa [2. Esimene workflow](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-2-workflow/): tee neid pärast seda, kui job `build` on PR-il roheline ja WAR on artefaktina salvestatud. Kaks esimest etappi on IS1 sammude pikem variant: IS1-s tehti neist ainult esimene viga ja actionlint'i paigaldus.
+Need sammud jätkavad IS1 praktikumi osa [2. Esimene workflow](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-2-workflow/): tee neid pärast seda, kui job `build` on PR-il roheline ja WAR on artefaktina salvestatud. Kaks esimest etappi on IS1 sammude pikem variant: IS1-s tehti neist ainult esimene viga ja actionlint'i paigaldus.
 
 ### Tee see teadlikult katki: kaks viga
 
@@ -290,7 +290,7 @@ Tavaliselt on Maveni samm kõige pikem ja setup-java teine, sest see taastab vah
 
 ## Osa 3 · Turvaskänn ja sõltuvused lähemalt
 
-Need sammud jätkavad IS1 praktikumi osa [3. Trivy ja õigused](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-3-trivy-matrix/): tee neid pärast seda, kui job `security` töötab ja igal job'il on oma `permissions:`. Kaks esimest etappi on IS1 sammude pikem variant koos SHA otsimise ja `compat` job'i õiguste katsega.
+Need sammud jätkavad IS1 praktikumi osa [3. Trivy ja õigused](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-3-trivy-matrix/): tee neid pärast seda, kui job `security` töötab ja igal job'il on oma `permissions:`. Kaks esimest etappi on IS1 sammude pikem variant koos SHA otsimise ja `compat` job'i õiguste katsega.
 
 ### Turvaskänn eraldi job'ina: SHA ise
 
@@ -522,7 +522,7 @@ Dependaboti viide ([`ignore`](https://docs.github.com/code-security/dependabot/w
 
 ## Osa 4 · Image ja runner lähemalt
 
-Need sammud jätkavad IS1 praktikumi osa [4. Image ja deploy](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-4-deploy/): tee neid pärast seda, kui main'i deploy on roheline ja `/version` näitab sama commit'i. Teine etapp on IS1 image'i sammu pikem variant koos kihtide vahemäluga.
+Need sammud jätkavad IS1 praktikumi osa [4. Image ja deploy](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-4-deploy/): tee neid pärast seda, kui main'i deploy on roheline ja `/version` näitab sama commit'i. Teine etapp on IS1 image'i sammu pikem variant koos kihtide vahemäluga.
 
 ### Image kõigepealt control node'il
 
@@ -639,7 +639,7 @@ Uus pealkiri brauseris ja õige `/version` tõestavad, et muudatus jõudis tootm
 
 ## Osa 5 · Deploy haldus
 
-Need sammud jätkavad IS1 praktikumi osa [5. Käsitsi käivitus ja saladused](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-5-saladused/): tee neid pärast seda, kui deploy kasutab environment'i `proxmox` secret'eid ja `~/k03.env` on kustutatud.
+Need sammud jätkavad IS1 praktikumi osa [5. Käsitsi käivitus ja saladused](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-5-saladused/): tee neid pärast seda, kui deploy kasutab environment'i `proxmox` secret'eid ja `~/k03.env` on kustutatud.
 
 ### Ajakava
 
@@ -732,7 +732,7 @@ Kui ootav on juba olemas, asendab uus selle ja vana ootaja tühistatakse. See on
 
 ## Osa 6 · Dependaboti PR
 
-See etapp eeldab IS2 etappi [Dependabot hoiab need värsked](#dependabot-hoiab-need-varsked) ja tehakse enne IS1 praktikumi osa [6. Esitamine](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-8-esitamine/) etappi „PR, merge ja tag“.
+See etapp eeldab IS2 etappi [Dependabot hoiab need värsked](#dependabot-hoiab-need-varsked) ja tehakse enne IS1 praktikumi osa [6. Esitamine](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-8-esitamine/) etappi „PR, merge ja tag“.
 
 ### Esimene Dependaboti PR
 

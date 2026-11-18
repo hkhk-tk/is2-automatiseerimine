@@ -6,7 +6,7 @@ tags:
 
 # 7. Katkine pipeline
 
-See osa eeldab, et IS1 praktikum [Maven ja GitHub Actions](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab/) ja selle kursuse osa [6. Health check ja rollback](lab-6-tagasipoore.md) on tehtud.
+See osa eeldab, et IS1 praktikum [Maven ja GitHub Actions](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab/) ja selle kursuse osa [6. Health check ja rollback](lab-6-tagasipoore.md) on tehtud.
 
 Selles osas otsid vigu nagu intsidendis. Skript `scripts/k05-rike.sh` teeb haru `k05-rike` neli riket eri kohtades, avab PR-i pealkirjaga „deploy kiiremaks“ ja peatab ühe asja sinu control node'il. Keegi ei ütle, mis on katki, ja nagu intsidendis on sümptom ühes kohas, põhjus teises ning esimene oletus sageli vale. Lõpus on PR main'is, deploy roheline ja iga paranduse põhjus commit'i sõnumis.
 

@@ -7,7 +7,7 @@ tags:
 
 # 5. Jenkins koodina
 
-Tee see leht pärast IS1 praktikumi moodulit [Agent ja esimene pipeline](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab-1-agent/): sandbox-Jenkins töötab control node'il klassi Jenkinsi agendi kõrval. Klassi Jenkinsi seadistuse loetav koopia on failis `k06-jenkins/klass-jenkins.yaml`. Kui see puudub, võta see avalikust rakenduse repositooriumist:
+Tee see leht pärast IS1 praktikumi moodulit [Agent ja esimene pipeline](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab-1-agent/): sandbox-Jenkins töötab control node'il klassi Jenkinsi agendi kõrval. Klassi Jenkinsi seadistuse loetav koopia on failis `k06-jenkins/klass-jenkins.yaml`. Kui see puudub, võta see avalikust rakenduse repositooriumist:
 
 ```bash
 curl -fsSL -o k06-jenkins/klass-jenkins.yaml https://raw.githubusercontent.com/hkhk-tk/labori-seis/main/deploy/ci/casc/klass-jenkins.yaml

@@ -7,7 +7,7 @@ tags:
 
 # Lisaülesanded: GitHub Actions
 
-Ülesanded jätkavad IS1 praktikumi [Maven ja GitHub Actions](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab/) workflow'd `ci.yml`. Iga ülesande juures on kirjas, millise IS1 praktikumi osa või IS2 süvenemise osa see eeldab.
+Ülesanded jätkavad IS1 praktikumi [Maven ja GitHub Actions](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab/) workflow'd `ci.yml`. Iga ülesande juures on kirjas, millise IS1 praktikumi osa või IS2 süvenemise osa see eeldab.
 
 | Ülesanne | Tase | Tulemus |
 |---|---|---|
@@ -37,7 +37,7 @@ tags:
 
 ### 1. Maveni hoidla ja tühi masin
 
-**Tase:** lihtne · **Eeldus:** [Maven](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-1-maven/)
+**Tase:** lihtne · **Eeldus:** [Maven](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-1-maven/)
 
 GitHubi hallatud runner on iga job'i alguses tühi masin, kohalikku Maveni hoidlat seal pole. Sinu workflow'is on `cache: maven`, aga sa ei tea, kui palju see igal käivitusel säästab.
 
@@ -80,7 +80,7 @@ rm -rf /tmp/m2-tuhi
 
 ### 2. Teine Maveni versioon
 
-**Tase:** lihtne · **Eeldus:** [Maven](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-1-maven/)
+**Tase:** lihtne · **Eeldus:** [Maven](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-1-maven/)
 
 Projekt võib nõuda kindlat Maveni versiooni, näiteks kui mõni plugin vajab uuemat Maveni API-t. Control node'il on apt'iga paigaldatud Maven, mida teised projektid kasutavad edasi.
 
@@ -122,7 +122,7 @@ Vihje: tarball on aadressil `https://archive.apache.org/dist/maven/maven-3/3.9.1
 
 ### 3. Maven Wrapper
 
-**Tase:** lihtne · **Eeldus:** [Maven](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-1-maven/) · **Esita:** `mvnw`, `mvnw.cmd`, `.mvn/`, `.github/workflows/ci.yml`
+**Tase:** lihtne · **Eeldus:** [Maven](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-1-maven/) · **Esita:** `mvnw`, `mvnw.cmd`, `.mvn/`, `.github/workflows/ci.yml`
 
 Ülesandes [2. Teine Maveni versioon](#2-teine-maveni-versioon) sõltus Maveni versioon sellest, mis masinasse on paigaldatud. Runner ja kolleegi masin võivad ehitada sama commit'i eri versiooniga.
 
@@ -166,7 +166,7 @@ Vihje: `mvn wrapper:wrapper -Dmaven=3.9.11`.
 
 ### 4. Action'i sisendid
 
-**Tase:** lihtne · **Eeldus:** [Esimene workflow](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-2-workflow/)
+**Tase:** lihtne · **Eeldus:** [Esimene workflow](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-2-workflow/)
 
 Action'it seadistatakse `with:`-sisenditega ja iga action'i README on selle dokumentatsioon. Sinu build job'i checkout kasutab vaikeväärtusi ja sa ei tea, kui palju Giti ajalugu runner'il on.
 
@@ -213,7 +213,7 @@ gh run view <id> --log | grep -A3 'git describe'
 
 ### 5. Ruleset
 
-**Tase:** lihtne · **Eeldus:** [Esimene workflow](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-2-workflow/)
+**Tase:** lihtne · **Eeldus:** [Esimene workflow](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-2-workflow/)
 
 Praegu saab main'i push'ida otse ja deploy käivitub ilma ühegi kontrollita.
 
@@ -261,7 +261,7 @@ git reset --hard HEAD~1
 
 ### 6. Trivy masinloetavalt
 
-**Tase:** lihtne · **Eeldus:** [Trivy, matrix ja õigused](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-3-trivy-matrix/)
+**Tase:** lihtne · **Eeldus:** [Trivy, matrix ja õigused](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-3-trivy-matrix/)
 
 Trivy tabel on mõeldud inimesele. Dashboard, piletisüsteem või quality gate vajab sama tulemust JSON-ina. Trivy paigaldasid control node'ile 3. kohtumisel.
 
@@ -361,7 +361,7 @@ docker start "$(docker ps -aq -f label=com.docker.compose.service=rmq01)"
 
 ### 8. Matrix kahes mõõtmes
 
-**Tase:** keskmine · **Eeldus:** [Trivy, matrix ja õigused](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-3-trivy-matrix/) · **Esita:** `.github/workflows/ci.yml`
+**Tase:** keskmine · **Eeldus:** [Trivy, matrix ja õigused](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-3-trivy-matrix/) · **Esita:** `.github/workflows/ci.yml`
 
 Sinu `compat` job proovib kahte JDK-d. Kui JDK ja JaCoCo töötavad kumbki eraldi uuendatuna, ei tähenda see veel, et nende kombinatsioon töötab.
 
@@ -409,7 +409,7 @@ gh run view <id> --json jobs --jq '.jobs[] | select(.name | startswith("compat")
 
 ### 9. Kontekst ja sammu tingimus
 
-**Tase:** keskmine · **Eeldus:** [Trivy, matrix ja õigused](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-3-trivy-matrix/)
+**Tase:** keskmine · **Eeldus:** [Trivy, matrix ja õigused](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-3-trivy-matrix/)
 
 Image'i ja deploy job'i `if:`-tingimused loevad [kontekstide](https://docs.github.com/actions/reference/workflows-and-actions/contexts) väärtusi. Osa väärtusi tuleb PR-i autorilt ja jõuab sinu runner'il shelli.
 
@@ -461,7 +461,7 @@ gh run list -w ci -L 2 --json event,headBranch,url
 
 ### 10. Trivy poliitika
 
-**Tase:** keskmine · **Eeldus:** [Image ja deploy](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-4-deploy/) · **Esita:** `.github/workflows/ci.yml`, `.trivyignore`
+**Tase:** keskmine · **Eeldus:** [Image ja deploy](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-4-deploy/) · **Esita:** `.github/workflows/ci.yml`, `.trivyignore`
 
 Trivy annab praegu ainult infot: kriitilise haavatavusega image jõuab ikkagi registry'sse ja sealt deploy'sse.
 
@@ -524,7 +524,7 @@ actionlint
 
 ### 11. Kus logimaskeering lõpeb
 
-**Tase:** keskmine · **Eeldus:** [Triggerid, saladused ja environment](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-5-saladused/)
+**Tase:** keskmine · **Eeldus:** [Triggerid, saladused ja environment](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-5-saladused/)
 
 GitHub asendab logis secret'i väärtuse tärnidega. Sa ei tea veel, millistel juhtudel see asendus ei toimi. Katse tehakse võltsväärtusega eraldi harus ja eraldi workflow failis, mitte `ci.yml`-is.
 
@@ -765,7 +765,7 @@ gh issue view <nr> --json body,comments --jq '.body, (.comments | length)'
 
 ### 14. Sama WAR app01 VM-ile
 
-**Tase:** raske · **Eeldus:** [Triggerid, saladused ja environment](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-5-saladused/) · **Esita:** `.github/workflows/ci.yml`
+**Tase:** raske · **Eeldus:** [Triggerid, saladused ja environment](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-5-saladused/) · **Esita:** `.github/workflows/ci.yml`
 
 Sama pipeline peab sobima ka serverile, kus konteinereid ei kasutata. Sama WAR, mille build job ehitas ja testis, läheb app01 VM-ile Ansible'iga sinu `k02-ansible` playbook'i kaudu. Konteineri deploy jääb muutmata.
 
@@ -981,7 +981,7 @@ Selle päeva töö ei vaja ruutereid: testid kasutavad võlts-ühendust ja GitHu
 
 ### 18. vorgukogu testid ja CI
 
-**Tase:** keskmine · **Eeldus:** [Esimene workflow](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-2-workflow/), 1. kohtumise lisaülesanne 21 ja [4. kohtumise lisaülesanne 17](https://hkhk-tk.github.io/is2-automatiseerimine/k04/lisa/#17-renderpy-soovitud-seis-templateist-diff-ja-apply) (`vorgukogu.py`, `render.py`, `intent/`, `templates/`) · **Esita:** `vorgukogu/`, `.github/workflows/vorgukogu.yml`
+**Tase:** keskmine · **Eeldus:** [Esimene workflow](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-2-workflow/), 1. kohtumise lisaülesanne 21 ja [4. kohtumise lisaülesanne 17](https://hkhk-tk.github.io/is2-automatiseerimine/k04/lisa/#17-renderpy-soovitud-seis-templateist-diff-ja-apply) (`vorgukogu.py`, `render.py`, `intent/`, `templates/`) · **Esita:** `vorgukogu/`, `.github/workflows/vorgukogu.yml`
 
 Kolleeg lisab maskeerimisse uue rea ja murrab kogemata olemasoleva, või template kaotab `key chain` ploki. Ruuter seda ei ütle ja viga märkab alles see, kes varukoopiat loeb.
 

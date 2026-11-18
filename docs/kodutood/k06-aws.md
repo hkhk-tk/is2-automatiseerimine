@@ -7,7 +7,7 @@ tags:
 
 # 6. kohtumise kodutöö · Jenkins: image ECR-i ja deploy EC2-le
 
-**Eeldus:** IS1 [6. kohtumise praktikum](https://hkhk-tk.github.io/is1-automatiseerimine/k06/lab/) (`k06-jenkins/Jenkinsfile` etapiga Docker image, sinu control node on Jenkinsi agent label'iga = GitHubi kasutajanimi) ja [süvenemise osa 4](../k06/syvenemine.md#osa-4-image-paralleel-ja-deploy) (`input`, `when`), [3.](https://hkhk-tk.github.io/is2-automatiseerimine/kodutood/k03-aws/) ja [5. kohtumise kodutöö](https://hkhk-tk.github.io/is2-automatiseerimine/kodutood/k05-aws/) (ECR repo, push-only IAM kasutaja, EC2 Compose'iga) · **Esita:** `k06-jenkins/Jenkinsfile` (uued etapid), `cloud/k06-aws/`
+**Eeldus:** IS1 [6. kohtumise praktikum](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/lab/) (`k06-jenkins/Jenkinsfile` etapiga Docker image, sinu control node on Jenkinsi agent label'iga = GitHubi kasutajanimi) ja [süvenemise osa 4](../k06/syvenemine.md#osa-4-image-paralleel-ja-deploy) (`input`, `when`), [3.](https://hkhk-tk.github.io/is2-automatiseerimine/kodutood/k03-aws/) ja [5. kohtumise kodutöö](https://hkhk-tk.github.io/is2-automatiseerimine/kodutood/k05-aws/) (ECR repo, push-only IAM kasutaja, EC2 Compose'iga) · **Esita:** `k06-jenkins/Jenkinsfile` (uued etapid), `cloud/k06-aws/`
 
 5\. kohtumise kodutöös laadis GitHub Actions image'i registrisse ja tegi deploy. Nüüd teeb sama töö koolitaja jagatud Jenkins, mille kettale ei tohi sinu
 AWS-i võti sattuda.

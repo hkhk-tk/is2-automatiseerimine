@@ -5,7 +5,7 @@ tags:
 
 # Abi: veaotsing
 
-Tabel katab IS1 praktikumi [Maven ja GitHub Actions](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab/) ja selle kursuse 5. kohtumise süvenemise sammud.
+Tabel katab IS1 praktikumi [Maven ja GitHub Actions](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab/) ja selle kursuse 5. kohtumise süvenemise sammud.
 
 | Sümptom | Kontrolli | Tõenäoline põhjus | Miks see juhtub |
 |---|---|---|---|

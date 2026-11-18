@@ -7,7 +7,7 @@ tags:
 
 # 6. Health check ja rollback
 
-See osa jätkab IS1 praktikumi osa [5. Käsitsi käivitus ja saladused](https://hkhk-tk.github.io/is1-automatiseerimine/k05/lab-5-saladused/): deploy job kasutab environment'i `proxmox` secret'eid ja kontrollib `/version` vastust.
+See osa jätkab IS1 praktikumi osa [5. Käsitsi käivitus ja saladused](https://hkhk-tk.github.io/is1-automatiseerimine/ci/lab-5-saladused/): deploy job kasutab environment'i `proxmox` secret'eid ja kontrollib `/version` vastust.
 
 Praegu on punane deploy sinu probleem: pead serverisse minema ja käsitsi vana versiooni tagasi panema. Nüüd kolib health check composite action'isse, mis ootab õiget commit'i ja tervet `/health`-i. Deploy jätab enne muutust meelde, milline image töötas, ja teeb rollback'i, kui uus versioon ei käivitu. Inimene otsustab endiselt, mis edasi saab, aga leht ei ole otsustamise ajal maas.
 

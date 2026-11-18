@@ -8,7 +8,7 @@ tags:
 
 # Loeng: Jenkins lähemalt
 
-Loeng jätkab IS1 [Jenkinsi, SonarQube'i ja Nexuse loengut](https://hkhk-tk.github.io/is1-automatiseerimine/k06/loeng/): pipeline'i olek controlleris, püsiv ja ajutine agent, shared library ja multibranch, rünnatud build-masin, artefaktide säilitamine, CI serveri turve ja haldus ning deploy kinnitus ja auditi jälg.
+Loeng jätkab IS1 [Jenkinsi, SonarQube'i ja Nexuse loengut](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/loeng/): pipeline'i olek controlleris, püsiv ja ajutine agent, shared library ja multibranch, rünnatud build-masin, artefaktide säilitamine, CI serveri turve ja haldus ning deploy kinnitus ja auditi jälg.
 
 ??? abstract "Õpiväljundid"
 
@@ -80,7 +80,7 @@ flowchart LR
   <figcaption>Joonis 6.5. Iga õppija näeb ainult oma folderit ja tema job käivitub ainult tema agendil (<a href="https://plugins.jenkins.io/job-restrictions/">Job Restrictions</a>).</figcaption>
 </figure>
 
-Folderi, globaalse ja süsteemi credential'i erinevus on IS1 loengu jaotises [Kaustad, õigused ja credential'id](https://hkhk-tk.github.io/is1-automatiseerimine/k06/loeng/#5-kaustad-oigused-ja-credentialid). Süsteemi credential'it, näiteks Sonari webhooki saladust, kasutab ainult Jenkins ise. Jenkinsfile'i Groovy töötab controlleris **Groovy sandboxis**: lubatud on ainult Script Security plugina valge nimekirja meetodid ja kõik muu läheb administraatori [kinnitusjärjekorda](https://www.jenkins.io/doc/book/managing/script-approval/). Üks kinnitatud meetod on lubatud kõigile pipeline'idele, mitte ainult sellele, mis seda küsis. Eraldi risk on Docker agendil: `/var/run/docker.sock`-i kirjutusõigus on [sisuliselt root](https://docs.docker.com/engine/security/#docker-daemon-attack-surface). Agendil on see teadlik otsus, controlleris kõigi kasutajate ühine root.
+Folderi, globaalse ja süsteemi credential'i erinevus on IS1 loengu jaotises [Kaustad, õigused ja credential'id](https://hkhk-tk.github.io/is1-automatiseerimine/jenkins/loeng/#5-kaustad-oigused-ja-credentialid). Süsteemi credential'it, näiteks Sonari webhooki saladust, kasutab ainult Jenkins ise. Jenkinsfile'i Groovy töötab controlleris **Groovy sandboxis**: lubatud on ainult Script Security plugina valge nimekirja meetodid ja kõik muu läheb administraatori [kinnitusjärjekorda](https://www.jenkins.io/doc/book/managing/script-approval/). Üks kinnitatud meetod on lubatud kõigile pipeline'idele, mitte ainult sellele, mis seda küsis. Eraldi risk on Docker agendil: `/var/run/docker.sock`-i kirjutusõigus on [sisuliselt root](https://docs.docker.com/engine/security/#docker-daemon-attack-surface). Agendil on see teadlik otsus, controlleris kõigi kasutajate ühine root.
 
 Teine teema on pluginad. Igal pluginal on oma sõltuvused, minimaalne Jenkinsi versioon ja turvateated. 2024. aasta jaanuaris avaldas Jenkins haavatavuse [CVE-2024-23897](https://www.jenkins.io/security/advisory/2024-01-24/). CLI parser asendas argumendi `@failinimi` faili sisuga, nii et autentimata kasutaja sai lugeda controlleri failide esimesi ridu ja *Overall/Read* õigusega kasutaja terveid faile, sh võtmeid, mille kaudu jõudis koodi käivitamiseni. Parandus tuli versioonidega 2.442 ja LTS 2.426.3. Sama aasta augustis oli see CISA [aktiivselt ära kasutatavate haavatavuste](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) nimekirjas.
 
